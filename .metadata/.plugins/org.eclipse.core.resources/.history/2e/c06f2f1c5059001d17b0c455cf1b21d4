@@ -1,0 +1,18 @@
+package com.innovento.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.innovento.model.SactionIntakeMaster;
+
+public interface SactionIntakeRepo extends JpaRepository<SactionIntakeMaster, Long> {
+
+	public SactionIntakeMaster findByprogramId(long acedamicId);
+
+	@Query("SELECT p.program_name,s.2015_16_count,s.2016_17_count,s.2017_18_count,s.2018_19_count,s.2019_20_count,s.2020_21_count from program_master p,saction_approved_intake_master s \r\n"
+			+ "where s.program_id=p.id")
+	public List findSactionApprovedListWithPrograms();
+
+}

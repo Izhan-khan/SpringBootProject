@@ -1,0 +1,11 @@
+package com.innovento.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.innovento.model.SactionIntakeMaster;
+
+public interface SactionIntakeRepo extends JpaRepository<SactionIntakeMaster, Long> {
+	
+	public SactionIntakeMaster findByprogramId(long acedamicId);
+
+}

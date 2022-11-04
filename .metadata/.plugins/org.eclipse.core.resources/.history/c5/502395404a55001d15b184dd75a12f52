@@ -1,0 +1,54 @@
+package com.innovento.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.innovento.model.ProgramMaster;
+import com.innovento.model.TotalStudentStrength;
+import com.innovento.model.sanctionIntakeMaster;
+import com.innovento.service.InnoventoMVPService;
+
+@RestController
+@CrossOrigin("*")
+public class innoventoController {
+
+	@Autowired
+	InnoventoMVPService innoventoMVPService;
+
+	@RequestMapping({ "/hello" })
+	public String hello() {
+		return "Hello World";
+	}
+
+	@GetMapping("/instituteDashboard" )
+	public String instituteDashboard() {
+		System.out.println("----instituteDashboard----");
+		return "instituteDashboard";
+		
+	}
+	
+
+	@GetMapping("/program/getNameFromId/{id}")
+	public ProgramMaster getProgram(@PathVariable("id") long id) {
+		return innoventoMVPService.getProgramFromId(id);
+	}
+
+	@GetMapping("/sactionApprovedIntake/getList")
+	public  List<sanctionIntakeMaster> getsactionApprovedList() {
+		return innoventoMVPService.getsactionApprovedList();
+	}
+	
+	@GetMapping("/totalStudentStrength/getList")
+	public  List<TotalStudentStrength> getTotalStudentList() {
+		return innoventoMVPService.getTotalStudentList();
+	}
+	
+	
+	
+}

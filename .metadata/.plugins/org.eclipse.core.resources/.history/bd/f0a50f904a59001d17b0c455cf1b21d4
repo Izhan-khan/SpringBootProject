@@ -1,0 +1,75 @@
+// Generated with g9.
+
+package com.innovento.model;
+
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
+@Entity(name="program_master")
+public class ProgramMaster implements Serializable {
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id", unique=true, nullable=false, precision=10)
+    private long id;
+    @Column(name="program_name", length=45)
+    private String programName;
+
+    /** Default constructor. */
+    public ProgramMaster() {
+        super();
+    }
+
+    /**
+     * Access method for id.
+     *
+     * @return the current value of id
+     */
+    public long getProgramId() {
+        return id;
+    }
+
+    /**
+     * Setter method for id.
+     *
+     * @param aProgramId the new value for id
+     */
+    public void setProgramId(long aProgramId) {
+        id = aProgramId;
+    }
+
+    /**
+     * Access method for programName.
+     *
+     * @return the current value of programName
+     */
+    public String getProgramName() {
+        return programName;
+    }
+
+    /**
+     * Setter method for programName.
+     *
+     * @param aProgramName the new value for programName
+     */
+    public void setProgramName(String aProgramName) {
+        programName = aProgramName;
+    }
+
+   
+ 
+
+}

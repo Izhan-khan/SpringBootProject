@@ -1,0 +1,12 @@
+package com.innovento.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.innovento.model.ProgramMaster;
+import com.innovento.model.TotalStudentStrength;
+
+public interface TotalStudentRepo extends JpaRepository<TotalStudentStrength, Integer> {
+	
+	public TotalStudentStrength findByProgram(ProgramMaster programMaster);
+
+}

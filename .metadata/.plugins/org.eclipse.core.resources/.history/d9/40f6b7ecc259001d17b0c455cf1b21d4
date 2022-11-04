@@ -1,0 +1,23 @@
+package com.innovento.model;
+
+import java.io.Serializable;
+
+public class JwtResponse implements Serializable {
+
+	private static final long serialVersionUID = -8091879091924046844L;
+	private final String jwttoken;
+	private int id;
+	private String username;
+	private String password;
+	
+
+	public JwtResponse(String jwttoken,String username,String password) {
+		this.jwttoken = jwttoken;
+		this.username=username;
+		this.password=password;
+	}
+
+	public String getToken() {
+		return this.jwttoken;
+	}
+}
