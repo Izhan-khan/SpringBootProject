@@ -40,7 +40,7 @@ public class JwtAuthenticationController {
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 		
-		final UserDetails userDetails = jwtInMemoryUserDetailsService
+		final UserDetails userDetails = jwtInMemoryUserDetailsService 
 				.loadUserByUsername(authenticationRequest.getUsername().trim());		
 		
 		if(!encoder.matches(authenticationRequest.getPassword(), userDetails.getPassword())) {
@@ -49,7 +49,7 @@ public class JwtAuthenticationController {
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		
-		return ResponseEntity.ok(new JwtResponse(token,authenticationRequest));
+		return ResponseEntity.ok(new JwtResponse(token,userDetails.getUsername()));
 	}
 
 
@@ -65,7 +65,7 @@ public class JwtAuthenticationController {
 		
 		final String token = jwtTokenUtil.generateToken(userDetails);
 		
-		return ResponseEntity.ok(new JwtResponse(token,universityObj));
+		return ResponseEntity.ok(new JwtResponse(token,userDetails.getUsername()));
 	}
 
 	@GetMapping("/university/getListWithName")

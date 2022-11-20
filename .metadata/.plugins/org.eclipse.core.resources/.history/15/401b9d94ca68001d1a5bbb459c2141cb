@@ -1,0 +1,51 @@
+package com.innovento.service;
+
+import java.util.List;
+
+import com.innovento.model.ConsultingProjectDetails;
+import com.innovento.model.Phd_graduated_student;
+import com.innovento.model.Phd_persuingTill2021;
+import com.innovento.model.ProgramMaster;
+import com.innovento.model.ProgramTime;
+import com.innovento.model.ResearchDetails;
+import com.innovento.model.SactionIntakeMaster;
+import com.innovento.model.SponsoredResearchDetails;
+import com.innovento.model.TotalStudentStrength;
+
+public interface InnoventoMVPService {
+	
+	public ProgramMaster getProgramFromId(long id);
+
+	public List<SactionIntakeMaster> getsactionApprovedList();
+	
+	public List<TotalStudentStrength> getTotalStudentList();
+	
+	public void addSactionApprovedList(List<SactionIntakeMaster> intakeMastersList) ;
+
+	public void addTotalStudentList(List<TotalStudentStrength> totalStudentList);
+	
+	public List<Object> getSactionApprovedListWithProgram();
+	
+	public List<Object> getUniversityName();
+	
+	public List<Phd_graduated_student> getPhdGraduatedStudentsList();
+
+	public void addPhdGraduatedStudentsList(List<Phd_graduated_student> phd_graduated_studentsList);
+
+	public List<Phd_persuingTill2021> getPhdPersuingStudentsList();
+
+	public void addPhdPersuingStudentsList(List<Phd_persuingTill2021> phd_persuingStudentsList );
+	
+	public ProgramTime getProgramTimeById(long id);
+
+	public ResearchDetails getResearchDetailsById(long id);
+
+	public List<SponsoredResearchDetails> getSponsoredResearchDetailsList();
+	
+	public void addSponsoredResearchDetailsList(List<SponsoredResearchDetails> sponsoredResearchDetails);
+
+	public List<ConsultingProjectDetails> getConsultingProjectDetailsList();
+	
+	public void addConsultingProjectDetailsList(List<ConsultingProjectDetails> consultingProjectDetailsList);
+		
+}

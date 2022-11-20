@@ -1,9 +1,0 @@
-package com.innovento.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.innovento.model.sactionIntakeMaster;
-
-public interface sanctionIntakeRepo extends JpaRepository<sactionIntakeMaster, Long> {
-
-}

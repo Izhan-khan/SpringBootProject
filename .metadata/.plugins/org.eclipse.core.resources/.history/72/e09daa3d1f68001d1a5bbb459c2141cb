@@ -1,0 +1,11 @@
+package com.innovento.model;
+
+import javax.persistence.Entity;
+
+@Entity(name="ProgramTime")
+public class ProgramTime {
+
+	private String ProgramTime;
+	
+	
+}

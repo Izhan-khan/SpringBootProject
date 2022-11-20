@@ -1,0 +1,5 @@
+package com.innovento.Repository;
+
+public interface PG_2yearRepo {
+
+}

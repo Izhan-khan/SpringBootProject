@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;university&apos; in &apos;com.innovento.model.JwtResponse&apos; to &apos;universityName&apos;&#x0D;&#x0A;- Original project: &apos;innovento-mvp&apos;&#x0D;&#x0A;- Original element: &apos;com.innovento.model.JwtResponse.university&apos;&#x0D;&#x0A;- Renamed element: &apos;com.innovento.model.JwtResponse.universityName&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;university&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.innovento.model{JwtResponse.java[JwtResponse^university" name="universityName" references="true" setter="false" stamp="1667849135782" textual="true" version="1.0"/>
+</session>

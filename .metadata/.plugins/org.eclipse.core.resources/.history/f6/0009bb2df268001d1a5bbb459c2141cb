@@ -1,0 +1,5 @@
+package com.innovento.model;
+
+public class AcademicYear {
+
+}

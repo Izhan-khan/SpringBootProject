@@ -6,35 +6,16 @@ public class JwtResponse implements Serializable {
 
 	private static final long serialVersionUID = -8091879091924046844L;
 	private final String jwttoken;
-	private JwtRequest jwtRequest;
-	private University university;
+	private String response;
 	
-	public JwtResponse(String jwttoken,JwtRequest jwtRequest) {
+	public JwtResponse(String jwttoken,String response) {
 		this.jwttoken = jwttoken;
-		this.jwtRequest= jwtRequest;
-	}
-
-	public JwtResponse(String jwttoken,University university) {
-		this.jwttoken = jwttoken;
-		this.university= university;
+		this.response= response;
 	}
 	
-	
-	public University getUniversity() {
-		return university;
-	}
-
-	public void setUniversity(University university) {
-		this.university = university;
-	}
-
-	public JwtRequest getJwtRequest() {
-		return jwtRequest;
-	}
-
-	public void setJwtRequest(JwtRequest jwtRequest) {
-		this.jwtRequest = jwtRequest;
-	}
+	public String getResponseString() {
+		return this.response;
+	}	
 
 	public String getToken() {
 		return this.jwttoken;
