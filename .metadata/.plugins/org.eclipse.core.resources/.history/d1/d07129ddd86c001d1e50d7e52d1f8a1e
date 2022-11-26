@@ -138,10 +138,6 @@ public class InnoventoController {
 	public AcademicYear getAcademicYear(@PathVariable("id") long id) {
 		return innoventoMVPService.getAcademicYearFromId(id);
 	}
-	@GetMapping("/academicYear/getList")
-	public List<AcademicYear> getacademicYearList() {
-		return innoventoMVPService.getAcademicYearList();
-	}
 
 	
 	@GetMapping("/ug_4year/getList")

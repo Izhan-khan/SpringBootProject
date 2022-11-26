@@ -21,8 +21,6 @@ public interface InnoventoMVPService {
 
 	public ProgramMaster getProgramFromId(long id);
 
-	public List<ProgramMaster> getProgramList();
-
 	public List<SactionIntakeMaster> getsactionApprovedList();
 
 	public List<TotalStudentStrength> getTotalStudentList();
@@ -65,8 +63,6 @@ public interface InnoventoMVPService {
 
 	public AcademicYear getAcademicYearFromId(long id);
 	
-	public List<AcademicYear> getAcademicYearList();
-
 	public List<UG_4year> getUG_4yearList();
 
 	public void addUG_4yearList(List<UG_4year>ug_4yearsList);

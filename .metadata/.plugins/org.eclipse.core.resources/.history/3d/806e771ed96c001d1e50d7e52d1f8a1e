@@ -140,7 +140,7 @@ public class InnoventoController {
 	}
 	@GetMapping("/academicYear/getList")
 	public List<AcademicYear> getacademicYearList() {
-		return innoventoMVPService.getAcademicYearList();
+		return innoventoMVPService.getacademicYearList();
 	}
 
 	

@@ -121,11 +121,6 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	public ProgramMaster getProgramFromId(long id) {
 		return programMasterRepo.findById(id).get();
 	}
-	@Override
-	public List<ProgramMaster> getProgramList() {
-		return programMasterRepo.findAll();
-	}
-
 
 	@Override
 	public List<SactionIntakeMaster> getsactionApprovedList() {
@@ -246,10 +241,6 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	public AcademicYear getAcademicYearFromId(long id) {
 		return academicYearRepo.findById(id).get();
 	}
-	@Override
-	public List<AcademicYear> getAcademicYearList() {
-		return academicYearRepo.findAll();
-	}
 
 	@Override
 	public List<UG_4year> getUG_4yearList() {
@@ -271,8 +262,5 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		pg_2yearRepo.saveAll(pg_2yearList);
 	}
 
-	
-
-	
 	
 }

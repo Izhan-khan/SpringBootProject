@@ -38,10 +38,6 @@ public class InnoventoController {
 	public ProgramMaster getProgram(@PathVariable("id") long id) {
 		return innoventoMVPService.getProgramFromId(id);
 	}
-	@GetMapping("/program/getList")
-	public List<ProgramMaster> getProgramList() {
-		return innoventoMVPService.getProgramList();
-	}
 
 	@GetMapping("/sactionApprovedIntake/getList")
 	public List<SactionIntakeMaster> getsactionApprovedList() {
@@ -137,10 +133,6 @@ public class InnoventoController {
 	@GetMapping("/academicYear/getNameFromId/{id}")
 	public AcademicYear getAcademicYear(@PathVariable("id") long id) {
 		return innoventoMVPService.getAcademicYearFromId(id);
-	}
-	@GetMapping("/academicYear/getList")
-	public List<AcademicYear> getacademicYearList() {
-		return innoventoMVPService.getAcademicYearList();
 	}
 
 	
