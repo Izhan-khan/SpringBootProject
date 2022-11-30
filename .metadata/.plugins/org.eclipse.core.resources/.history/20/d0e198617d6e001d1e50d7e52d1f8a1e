@@ -124,7 +124,7 @@ public class TotalStudentStrength implements Serializable {
      * @return the current value of totalStudents
      */
     public int getTotalStudents() {
-        return noOfMaleStudents+noOfFemaleStudents;
+        return totalStudents;
     }
 
     /**
@@ -133,7 +133,7 @@ public class TotalStudentStrength implements Serializable {
      * @param aTotalStudents the new value for totalStudents
      */
     public void setTotalStudents(int aTotalStudents) {
-        totalStudents = noOfMaleStudents+noOfFemaleStudents;
+        totalStudents = aTotalStudents;
     }
 
     /**

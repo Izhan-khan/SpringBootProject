@@ -146,7 +146,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	@Override
 	@Transactional
 	public void addTotalStudentList(List<TotalStudentStrength> totalStudentList) {
-			totalStudentRepo.saveAll(totalStudentList);
+			totalStudentRepo.save(totalStudentList);
+		}
 	}
 
 	@Override

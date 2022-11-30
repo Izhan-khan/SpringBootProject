@@ -140,13 +140,25 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	@Override
 	@Transactional
 	public void addSactionApprovedList(List<SactionIntakeMaster> intakeMastersList) {
-			sactionIntakeRepo.saveAll(intakeMastersList);
+
+		for (SactionIntakeMaster intakeMaster : intakeMastersList) {
+			if (sactionIntakeRepo.findByProgramId(intakeMaster.getProgramId()) != null) {
+				intakeMaster.setId(sactionIntakeRepo.findByProgramId(intakeMaster.getProgramId()).getId());
+			}
+			sactionIntakeRepo.save(intakeMaster);
+		}
 	}
 
 	@Override
 	@Transactional
 	public void addTotalStudentList(List<TotalStudentStrength> totalStudentList) {
-			totalStudentRepo.saveAll(totalStudentList);
+
+		for (TotalStudentStrength totalStudent : totalStudentList) {
+			if (totalStudentRepo.findByProgramId(totalStudent.getProgramId()) != null) {
+				totalStudent.setId(totalStudentRepo.findByProgramId(totalStudent.getProgramId()).getId());
+			}
+			totalStudentRepo.save(totalStudent);
+		}
 	}
 
 	@Override
