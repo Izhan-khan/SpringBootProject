@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.innovento.config.JwtTokenUtil;
 import com.innovento.model.JwtRequest;
 import com.innovento.model.JwtResponse;
-import com.innovento.model.University;
+import com.innovento.model.UniversityLogin;
 import com.innovento.service.InnoventoMVPService;
 
 @RestController
@@ -54,12 +54,18 @@ public class JwtAuthenticationController {
 
 
 	@RequestMapping(value = "/university/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> createUniversityAuthenticationToken(@RequestBody University universityObj) throws Exception {
+	public ResponseEntity<?> createUniversityAuthenticationToken(@RequestBody UniversityLogin universityLoginObj) throws Exception {
 
+		System.out.println("username : "+ universityLoginObj.getuId());
+		System.out.println("password : "+ universityLoginObj.getPassword());
+		
 		final UserDetails userDetails = jwtInMemoryUserDetailsService
-				.loadUserByUsername(universityObj.getName().trim());		
-	
-		if(!encoder.matches(universityObj.getPassword(), userDetails.getPassword())) {
+				.loadUserByUsername(String .valueOf(universityLoginObj.getuId()));	
+		
+		System.out.println("username : "+userDetails.getUsername());
+		System.out.println("password : "+userDetails.getPassword());
+		
+		if(!encoder.matches(universityLoginObj.getPassword(), userDetails.getPassword())) {
 			throw new BadCredentialsException("Password Mismatch ");
 		}
 		

@@ -1,0 +1,19 @@
+package com.innovento.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.innovento.model.UniversityLogin;
+
+@Repository
+public interface UniversityRepo extends JpaRepository<UniversityLogin, Long>{
+	
+	public UniversityLogin findByU_id(long u_id);
+
+	@Query(value = "SELECT u.u_id,u.university_name FROM university_master u", nativeQuery = true)
+	public List<Object>  getUniversityNamesList();
+
+}

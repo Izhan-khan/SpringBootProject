@@ -1,9 +1,0 @@
-package com.innovento.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.innovento.model.Phd_persuingTill2021;
-
-public interface PhdPersuingRepo extends JpaRepository<Phd_persuingTill2021, Long>{
-
-}

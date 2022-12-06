@@ -6,14 +6,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.innovento.model.University;
+import com.innovento.model.UniversityLogin;
 
 @Repository
-public interface UniversityRepo extends JpaRepository<University, Long>{
+public interface UniversityRepo extends JpaRepository<UniversityLogin, Long>{
 	
-	public University findByName(String name);
+	public UniversityLogin findByuId(long u_id);
 
-	@Query(value = "SELECT u.id,u.name FROM university u", nativeQuery = true)
+	@Query(value = "SELECT u.u_id,u.university_name FROM university_master u", nativeQuery = true)
 	public List<Object>  getUniversityNamesList();
 
 }

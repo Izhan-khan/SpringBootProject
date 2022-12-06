@@ -43,7 +43,7 @@ import com.innovento.model.SactionIntakeMaster;
 import com.innovento.model.SponsoredResearchDetails;
 import com.innovento.model.TotalStudentStrength;
 import com.innovento.model.UG_4year;
-import com.innovento.model.University;
+import com.innovento.model.UniversityLogin;
 
 @Service
 public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetailsService {
@@ -103,13 +103,13 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		
 		JwtRequest jwtRequest = userRepo.findByUsername(username);
 //		System.out.println(username);
-		University university= universityRepo.findByName(username);
+		UniversityLogin university= universityRepo.findByuId(Integer.parseInt(username));
 //		System.out.println(universityRepo.findByName(username));
 			if (jwtRequest !=null && jwtRequest.getUsername().equals(username)) {
 				return new User(jwtRequest.getUsername(),jwtRequest.getPassword(),
 						new ArrayList<>());
-			} else 	if (university !=null && university.getName().equals(username)) {
-				return new User(university.getName(),university.getPassword(),
+			} else 	if (university !=null && String.valueOf(university.getuId()).equals(username)) {
+				return new User(String.valueOf(university.getuId()),university.getPassword(),
 						new ArrayList<>());
 			} else {
 				throw new UsernameNotFoundException(username+" Not Found");
