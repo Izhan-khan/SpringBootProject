@@ -144,44 +144,16 @@
 		name="VENDOR_SPECIFIC_TYPE"
 	/>
 	<Table
-		ClassName="AcedamicYearData"
+		ClassName="AcademicYear"
 		Include="False"
-		name="acedamic_year_data">
+		name="academic_year">
 		<Column
 			AttributeName="id"
 			name="id"
 		/>
 		<Column
-			AttributeName="_202021Count"
-			name="2020_21_count"
-		/>
-		<Column
-			AttributeName="_201920Count"
-			name="2019_20_count"
-		/>
-		<Column
-			AttributeName="_201819Count"
-			name="2018_19_count"
-		/>
-		<Column
-			AttributeName="_201718Count"
-			name="2017_18_count"
-		/>
-		<Column
-			AttributeName="_201617Count"
-			name="2016_17_count"
-		/>
-		<Column
-			AttributeName="_201516Count"
-			name="2015_16_count"
-		/>
-		<Column
-			AttributeName="acedamicId"
-			name="acedamic_id"
-		/>
-		<Column
-			AttributeName="lockFlag"
-			name="lock_flag"
+			AttributeName="academicYear"
+			name="academic_year"
 		/>
 	</Table>
 	<Table
@@ -247,6 +219,31 @@
 		/>
 	</Table>
 	<Table
+		ClassName="CapitalExpenditureAmount"
+		Include="False"
+		name="capital_expenditure_amount">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="_20182019Count"
+			name="_2018_2019_count"
+		/>
+		<Column
+			AttributeName="_20192020Count"
+			name="_2019_2020_count"
+		/>
+		<Column
+			AttributeName="_20202021Count"
+			name="_2020_2021_count"
+		/>
+		<Column
+			AttributeName="financialResources"
+			name="financial_resources"
+		/>
+	</Table>
+	<Table
 		ClassName="Category"
 		Include="False"
 		name="category">
@@ -282,6 +279,137 @@
 		<Column
 			AttributeName="lastUpdate"
 			name="last_update"
+		/>
+	</Table>
+	<Table
+		ClassName="CollegeMaster"
+		Include="False"
+		name="college_master">
+		<Column
+			AttributeName="cId"
+			name="c_id"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="collegeName"
+			name="college_name"
+		/>
+		<Column
+			AttributeName="collegeType"
+			name="college_type"
+		/>
+		<Column
+			AttributeName="collegeAddress"
+			name="college_address"
+		/>
+		<Column
+			AttributeName="collegeWebsite"
+			name="college_website"
+		/>
+		<Column
+			AttributeName="collegeManagement"
+			name="college_management"
+		/>
+		<Column
+			AttributeName="collegeEstablishmentYear"
+			name="college_establishment_year"
+		/>
+		<Column
+			AttributeName="collegeSpecializedIn"
+			name="college_specialized_in"
+		/>
+		<Column
+			AttributeName="collegeLocation"
+			name="college_location"
+		/>
+		<Column
+			AttributeName="collegeUploadYear"
+			name="college_upload_year"
+		/>
+		<Column
+			AttributeName="collegeSurveyYear"
+			name="college_survey_year"
+		/>
+	</Table>
+	<Table
+		ClassName="CollegeSampletable"
+		Include="False"
+		name="college_sampletable">
+		<Column
+			AttributeName="cId"
+			name="c_id"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="collegeName"
+			name="college_name"
+		/>
+		<Column
+			AttributeName="collegeType"
+			name="college_type"
+		/>
+		<Column
+			AttributeName="collegeAddress"
+			name="college_address"
+		/>
+		<Column
+			AttributeName="collegeWebsite"
+			name="college_website"
+		/>
+		<Column
+			AttributeName="collegeManagement"
+			name="college_management"
+		/>
+		<Column
+			AttributeName="collegeEstablishmentYear"
+			name="college_establishment_year"
+		/>
+		<Column
+			AttributeName="collegeSpecializedIn"
+			name="college_specialized_in"
+		/>
+		<Column
+			AttributeName="collegeLocation"
+			name="college_location"
+		/>
+		<Column
+			AttributeName="collegeUploadYear"
+			name="college_upload_year"
+		/>
+		<Column
+			AttributeName="collegeSurveyYear"
+			name="college_survey_year"
+		/>
+	</Table>
+	<Table
+		ClassName="ConsultingProjectDetails"
+		Include="False"
+		name="consulting_project_details">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="_20182019Count"
+			name="2018_2019_count"
+		/>
+		<Column
+			AttributeName="_20192020Count"
+			name="2019_2020_count"
+		/>
+		<Column
+			AttributeName="_20202021Count"
+			name="2020_2021_count"
+		/>
+		<Column
+			AttributeName="researchDetailsId"
+			name="research_details_id"
 		/>
 	</Table>
 	<Table
@@ -631,6 +759,31 @@
 		/>
 	</Table>
 	<Table
+		ClassName="OperationExpenditureAmount"
+		Include="False"
+		name="operation_expenditure_amount">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="_20182019Count"
+			name="_2018_2019_count"
+		/>
+		<Column
+			AttributeName="_20192020Count"
+			name="_2019_2020_count"
+		/>
+		<Column
+			AttributeName="_20202021Count"
+			name="_2020_2021_count"
+		/>
+		<Column
+			AttributeName="financialResources"
+			name="financial_resources"
+		/>
+	</Table>
+	<Table
 		ClassName="Payment"
 		Include="False"
 		name="payment">
@@ -664,6 +817,77 @@
 		/>
 	</Table>
 	<Table
+		ClassName="Pg2Year"
+		Include="False"
+		name="pg_2_year">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="academicYearId"
+			name="academic_year_id"
+		/>
+		<Column
+			AttributeName="firstYearStudentAdmitted"
+			name="first_year_student_admitted"
+		/>
+		<Column
+			AttributeName="firstYearStudentIntakeCount"
+			name="first_year_student_intake_count"
+		/>
+		<Column
+			AttributeName="medianSalaryOfPlacedStudentCount"
+			name="median_salary_of_placed_student_count"
+		/>
+		<Column
+			AttributeName="studentGraduatedInMinTimeCount"
+			name="student_graduated_in_min_time_count"
+		/>
+		<Column
+			AttributeName="studentPlacedCount"
+			name="student_placed_count"
+		/>
+		<Column
+			AttributeName="studentSelectedForHigerStudiesCount"
+			name="student_selected_for_higer_studies_count"
+		/>
+	</Table>
+	<Table
+		ClassName="PhdGraduated"
+		Include="False"
+		name="phd_graduated">
+		<Column
+			AttributeName="phdgraId"
+			name="phdgra_id"
+		/>
+		<Column
+			AttributeName="fullTime"
+			name="full_time"
+		/>
+		<Column
+			AttributeName="partTime"
+			name="part_time"
+		/>
+	</Table>
+	<Table
+		ClassName="PhdPersuing"
+		Include="False"
+		name="phd_persuing">
+		<Column
+			AttributeName="pdhId"
+			name="pdh_id"
+		/>
+		<Column
+			AttributeName="fullTime"
+			name="full_time"
+		/>
+		<Column
+			AttributeName="partTime"
+			name="part_time"
+		/>
+	</Table>
+	<Table
 		ClassName="ProgramMaster"
 		Include="False"
 		name="program_master">
@@ -674,6 +898,19 @@
 		<Column
 			AttributeName="id"
 			name="id"
+		/>
+	</Table>
+	<Table
+		ClassName="ProgramTime"
+		Include="False"
+		name="program_time">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="programTime"
+			name="program_time"
 		/>
 	</Table>
 	<Table
@@ -707,6 +944,19 @@
 		<Column
 			AttributeName="lastUpdate"
 			name="last_update"
+		/>
+	</Table>
+	<Table
+		ClassName="ResearchDetails"
+		Include="False"
+		name="research_details">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="reaseachDetails"
+			name="reaseach_details"
 		/>
 	</Table>
 	<Table
@@ -1187,6 +1437,7 @@
 	</Table>
 	<Table
 		ClassName="SactionApprovedIntakeMaster"
+		Include="False"
 		name="saction_approved_intake_master">
 		<Column
 			AttributeName="_201516Count"
@@ -1219,6 +1470,84 @@
 		<Column
 			AttributeName="programId"
 			name="program_id"
+		/>
+	</Table>
+	<Table
+		ClassName="SactionApprovedIntakeMasterHistory"
+		Include="False"
+		name="saction_approved_intake_master_history">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="_201516Count"
+			name="2015_16_count"
+		/>
+		<Column
+			AttributeName="_201617Count"
+			name="2016_17_count"
+		/>
+		<Column
+			AttributeName="_201718Count"
+			name="2017_18_count"
+		/>
+		<Column
+			AttributeName="_201819Count"
+			name="2018_19_count"
+		/>
+		<Column
+			AttributeName="_201920Count"
+			name="2019_20_count"
+		/>
+		<Column
+			AttributeName="_202021Count"
+			name="2020_21_count"
+		/>
+		<Column
+			AttributeName="createdBy"
+			name="created_by"
+		/>
+		<Column
+			AttributeName="createdDate"
+			name="created_date"
+		/>
+		<Column
+			AttributeName="lastModifiedBy"
+			name="last_modified_by"
+		/>
+		<Column
+			AttributeName="lastModifiedDate"
+			name="last_modified_date"
+		/>
+		<Column
+			AttributeName="programId"
+			name="program_id"
+		/>
+	</Table>
+	<Table
+		ClassName="SponsoredResearchDetails"
+		Include="False"
+		name="sponsored_research_details">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="_20182019Count"
+			name="2018_2019_count"
+		/>
+		<Column
+			AttributeName="_20192020Count"
+			name="2019_2020_count"
+		/>
+		<Column
+			AttributeName="_20202021Count"
+			name="2020_2021_count"
+		/>
+		<Column
+			AttributeName="researchDetailsId"
+			name="research_details_id"
 		/>
 	</Table>
 	<Table
@@ -1802,6 +2131,48 @@
 		/>
 	</Table>
 	<Table
+		ClassName="StudentGraduatedPhd"
+		Include="False"
+		name="student_graduated_phd">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="_20182019Count"
+			name="2018_2019_count"
+		/>
+		<Column
+			AttributeName="_20192020Count"
+			name="2019_2020_count"
+		/>
+		<Column
+			AttributeName="_20202021Count"
+			name="2020_2021_count"
+		/>
+		<Column
+			AttributeName="programTimeId"
+			name="program_time_id"
+		/>
+	</Table>
+	<Table
+		ClassName="StudentPersuingPhdTill202021"
+		Include="False"
+		name="student_persuing_phd_till_2020_21">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="programTimeId"
+			name="program_time_id"
+		/>
+		<Column
+			AttributeName="totalStudentsCount"
+			name="total_students_count"
+		/>
+	</Table>
+	<Table
 		ClassName="SysConfig"
 		Include="False"
 		name="sys_config">
@@ -1837,6 +2208,59 @@
 		<Column
 			AttributeName="csId"
 			name="csID"
+		/>
+	</Table>
+	<Table
+		ClassName="TotalActualStudentStrength"
+		Include="False"
+		name="total_actual_student_strength">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="studentMaleCount"
+			name="student_male_count"
+		/>
+		<Column
+			AttributeName="studentFemaleCount"
+			name="student_female_count"
+		/>
+		<Column
+			AttributeName="studentWithinStateCount"
+			name="student_within_state_count"
+		/>
+		<Column
+			AttributeName="studentOutsideStateCount"
+			name="student_outside_state_count"
+		/>
+		<Column
+			AttributeName="studentOutsideCountryCount"
+			name="student_outside_country_count"
+		/>
+		<Column
+			AttributeName="studentEconomicallyBackwardCount"
+			name="student_economically_backward_count"
+		/>
+		<Column
+			AttributeName="studentSociallyChallengedCount"
+			name="student_socially_challenged_count"
+		/>
+		<Column
+			AttributeName="studentFeeReimbursementReceivingStateCgCount"
+			name="student_fee_reimbursement_receiving_state_cg_count"
+		/>
+		<Column
+			AttributeName="studentFeeReimbursementReceivingPrivateBodiesCount"
+			name="student_fee_reimbursement_ receiving_private_bodies_count"
+		/>
+		<Column
+			AttributeName="studentFeeReimbursementNotReceivingPrivateBodiesCount"
+			name="student_fee_reimbursement_ not_receiving_private_bodies_count"
+		/>
+		<Column
+			AttributeName="validations"
+			name="validations"
 		/>
 	</Table>
 	<Table
@@ -1898,6 +2322,180 @@
 		<Column
 			AttributeName="programId"
 			name="program_id"
+		/>
+	</Table>
+	<Table
+		ClassName="Ug4Year"
+		Include="False"
+		name="ug_4_year">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="academicYearId"
+			name="academic_year_id"
+		/>
+		<Column
+			AttributeName="firstYearStudentAdmittedCount"
+			name="first_year_student_admitted_count"
+		/>
+		<Column
+			AttributeName="firstYearStudentIntakeCount"
+			name="first_year_student_intake_count"
+		/>
+		<Column
+			AttributeName="lateralEntryStudentCount"
+			name="lateral_entry_student_count"
+		/>
+		<Column
+			AttributeName="medianSalaryOfPlacedStudentCount"
+			name="median_salary_of_placed_student_count"
+		/>
+		<Column
+			AttributeName="studentGraduatedInMinTimeCount"
+			name="student_graduated_in_min_time_count"
+		/>
+		<Column
+			AttributeName="studentPlacedCount"
+			name="student_placed_count"
+		/>
+		<Column
+			AttributeName="studentSelectedForHigerStudiesCount"
+			name="student_selected_for_higer_studies_count"
+		/>
+	</Table>
+	<Table
+		ClassName="Ug4yearPlacementNHigherStudies"
+		Include="False"
+		name="ug_4year_placement_n_higher_studies">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="academicYear"
+			name="academic_year"
+		/>
+		<Column
+			AttributeName="firstYearStudentAdmitted"
+			name="first_year_student_admitted"
+		/>
+		<Column
+			AttributeName="firstYearStudentIntake"
+			name="first_year_student_intake"
+		/>
+		<Column
+			AttributeName="firstYearStudentAdmittedCount"
+			name="first_year_student_admitted_count"
+		/>
+		<Column
+			AttributeName="firstYearStudentIntakeCount"
+			name="first_year_student_intake_count"
+		/>
+	</Table>
+	<Table
+		ClassName="University"
+		Include="False"
+		name="university">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="name"
+			name="name"
+		/>
+		<Column
+			AttributeName="password"
+			name="password"
+		/>
+	</Table>
+	<Table
+		ClassName="UniversityCollegeRelation"
+		Include="False"
+		name="university_college_relation">
+		<Column
+			AttributeName="ucrId"
+			name="ucr_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+	</Table>
+	<Table
+		ClassName="UniversityLoginMaster"
+		Include="False"
+		name="university_login_master">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="uId"
+			name="u_id"
+		/>
+		<Column
+			AttributeName="password"
+			name="password"
+		/>
+	</Table>
+	<Table
+		ClassName="UniversityMaster"
+		Include="True"
+		name="university_master">
+		<Column
+			AttributeName="uId"
+			name="u_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
+		<Column
+			AttributeName="universityName"
+			name="university_name"
+		/>
+		<Column
+			AttributeName="universityType"
+			name="university_type"
+		/>
+		<Column
+			AttributeName="universityState"
+			name="university_state"
+		/>
+		<Column
+			AttributeName="universityDistrict"
+			name="university_district"
+		/>
+		<Column
+			AttributeName="universityAddress"
+			name="university_address"
+		/>
+		<Column
+			AttributeName="yearUniversityDeclared"
+			name="year_university_declared"
+		/>
+		<Column
+			AttributeName="universitySpecializedIn"
+			name="university_specialized_in"
+		/>
+		<Column
+			AttributeName="universityLocation"
+			name="university_location"
+		/>
+		<Column
+			AttributeName="universityUploadYear"
+			name="university_upload_year"
+		/>
+		<Column
+			AttributeName="instituteAddedSurveyYear"
+			name="institute_added_survey_year"
 		/>
 	</Table>
 	<Table

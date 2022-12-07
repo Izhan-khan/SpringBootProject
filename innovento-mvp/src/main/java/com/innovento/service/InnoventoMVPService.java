@@ -16,6 +16,7 @@ import com.innovento.model.SactionIntakeMaster;
 import com.innovento.model.SponsoredResearchDetails;
 import com.innovento.model.TotalStudentStrength;
 import com.innovento.model.UG_4year;
+import com.innovento.model.UniversityMaster;
 
 public interface InnoventoMVPService {
 
@@ -74,6 +75,8 @@ public interface InnoventoMVPService {
 	public List<PG_2year> getPG_2yearList();
 
 	public void addPG_2yearList(List<PG_2year>pg_2yearList);
+	
+	public UniversityMaster getUniversityMasterById(long uId);
 
 	
 }

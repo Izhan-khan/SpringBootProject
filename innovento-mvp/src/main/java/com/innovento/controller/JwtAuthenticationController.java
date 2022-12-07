@@ -56,14 +56,9 @@ public class JwtAuthenticationController {
 	@RequestMapping(value = "/university/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createUniversityAuthenticationToken(@RequestBody UniversityLogin universityLoginObj) throws Exception {
 
-		System.out.println("username : "+ universityLoginObj.getuId());
-		System.out.println("password : "+ universityLoginObj.getPassword());
-		
 		final UserDetails userDetails = jwtInMemoryUserDetailsService
 				.loadUserByUsername(String .valueOf(universityLoginObj.getuId()));	
 		
-		System.out.println("username : "+userDetails.getUsername());
-		System.out.println("password : "+userDetails.getPassword());
 		
 		if(!encoder.matches(universityLoginObj.getPassword(), userDetails.getPassword())) {
 			throw new BadCredentialsException("Password Mismatch ");

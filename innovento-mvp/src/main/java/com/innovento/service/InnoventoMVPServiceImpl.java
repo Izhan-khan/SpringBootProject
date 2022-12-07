@@ -26,7 +26,8 @@ import com.innovento.Repository.SactionIntakeRepo;
 import com.innovento.Repository.SponsoredResearchDetailsRepo;
 import com.innovento.Repository.TotalStudentRepo;
 import com.innovento.Repository.UG_4yearRepo;
-import com.innovento.Repository.UniversityRepo;
+import com.innovento.Repository.UniversityLoginRepo;
+import com.innovento.Repository.UniversityMasterRepo;
 import com.innovento.Repository.UserRepo;
 import com.innovento.model.AcademicYear;
 import com.innovento.model.CapitalExpenditureAmount;
@@ -44,6 +45,7 @@ import com.innovento.model.SponsoredResearchDetails;
 import com.innovento.model.TotalStudentStrength;
 import com.innovento.model.UG_4year;
 import com.innovento.model.UniversityLogin;
+import com.innovento.model.UniversityMaster;
 
 @Service
 public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetailsService {
@@ -55,7 +57,7 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	private ProgramMasterRepo programMasterRepo;
 
 	@Autowired
-	private UniversityRepo universityRepo;
+	private UniversityLoginRepo universityLoginRepo;
 
 	@Autowired
 	private SactionIntakeRepo sactionIntakeRepo;
@@ -65,67 +67,70 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 
 	@Autowired
 	private PhdGraduatedRepo phdGraduatedRepo;
-	
+
 	@Autowired
 	private PhdPersuingRepo phdPersuingRepo;
-	
+
 	@Autowired
 	private ProgramTimeRepo programTimeRepo;
-	
+
 	@Autowired
 	private ResearchDetailsRepo researchDetailsRepo;
-	
+
 	@Autowired
 	private SponsoredResearchDetailsRepo sponsoredResearchDetailsRepo;
-	
+
 	@Autowired
 	private ConsultingProjectDetailsRepo consultingProjectDetailsRepo;
 
 	@Autowired
 	private CapitalExpenditureAmountRepo capitalExpenditureAmountRepo;
-	
+
 	@Autowired
 	private OperationExpenditureAmountRepo operationExpenditureAmountRepo;
-	
+
 	@Autowired
 	private AcademicYearRepo academicYearRepo;
-	
-	
+
 	@Autowired
 	private UG_4yearRepo ug_4yearRepo;
-	
+
 	@Autowired
 	private PG_2yearRepo pg_2yearRepo;
 	
-	
+	@Autowired
+	private UniversityMasterRepo universityMasterRepo;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		JwtRequest jwtRequest = userRepo.findByUsername(username);
-//		System.out.println(username);
-		UniversityLogin university= universityRepo.findByuId(Integer.parseInt(username));
-//		System.out.println(universityRepo.findByName(username));
-			if (jwtRequest !=null && jwtRequest.getUsername().equals(username)) {
-				return new User(jwtRequest.getUsername(),jwtRequest.getPassword(),
-						new ArrayList<>());
-			} else 	if (university !=null && String.valueOf(university.getuId()).equals(username)) {
-				return new User(String.valueOf(university.getuId()),university.getPassword(),
-						new ArrayList<>());
+
+		if (username.chars().allMatch(Character::isDigit)) {
+			UniversityLogin university = universityLoginRepo.findByuId(Integer.parseInt(username));
+			if (university != null && String.valueOf(university.getuId()).equals(username)) {
+				return new User(String.valueOf(university.getuId()), university.getPassword(), new ArrayList<>());
 			} else {
-				throw new UsernameNotFoundException(username+" Not Found");
+				throw new UsernameNotFoundException(username + " Not Found");
 			}
-	
+		} else {
+			JwtRequest jwtRequest = userRepo.findByUsername(username);
+			if (jwtRequest != null && jwtRequest.getUsername().equals(username)) {
+				return new User(jwtRequest.getUsername(), jwtRequest.getPassword(), new ArrayList<>());
+			}else {
+				throw new UsernameNotFoundException(username + " Not Found");
+			}
+		}
+
 	}
 
 	@Override
 	public ProgramMaster getProgramFromId(long id) {
 		return programMasterRepo.findById(id).get();
 	}
+
 	@Override
 	public List<ProgramMaster> getProgramList() {
 		return programMasterRepo.findAll();
 	}
-
 
 	@Override
 	public List<SactionIntakeMaster> getsactionApprovedList() {
@@ -140,13 +145,13 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	@Override
 	@Transactional
 	public void addSactionApprovedList(List<SactionIntakeMaster> intakeMastersList) {
-			sactionIntakeRepo.saveAll(intakeMastersList);
+		sactionIntakeRepo.saveAll(intakeMastersList);
 	}
 
 	@Override
 	@Transactional
 	public void addTotalStudentList(List<TotalStudentStrength> totalStudentList) {
-			totalStudentRepo.saveAll(totalStudentList);
+		totalStudentRepo.saveAll(totalStudentList);
 	}
 
 	@Override
@@ -156,7 +161,7 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 
 	@Override
 	public List<Object> getUniversityName() {
-		return universityRepo.getUniversityNamesList();
+		return universityLoginRepo.getUniversityNamesList();
 	}
 
 	@Override
@@ -188,7 +193,6 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	public ResearchDetails getResearchDetailsById(long id) {
 		return researchDetailsRepo.findById(id).get();
 	}
-
 
 	@Override
 	public List<SponsoredResearchDetails> getSponsoredResearchDetailsList() {
@@ -234,6 +238,7 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	public AcademicYear getAcademicYearFromId(long id) {
 		return academicYearRepo.findById(id).get();
 	}
+
 	@Override
 	public List<AcademicYear> getAcademicYearList() {
 		return academicYearRepo.findAll();
@@ -259,8 +264,10 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		pg_2yearRepo.saveAll(pg_2yearList);
 	}
 
-	
+	@Override
+	public UniversityMaster getUniversityMasterById(long uId) {
+		return universityMasterRepo.findByuId(uId);
 
-	
-	
+	}
+
 }
