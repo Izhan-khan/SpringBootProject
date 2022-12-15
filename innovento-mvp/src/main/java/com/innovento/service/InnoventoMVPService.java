@@ -78,5 +78,7 @@ public interface InnoventoMVPService {
 	
 	public UniversityMaster getUniversityMasterById(long uId);
 
+	public List<Object> getCollegeName(String university_id);
+
 	
 }

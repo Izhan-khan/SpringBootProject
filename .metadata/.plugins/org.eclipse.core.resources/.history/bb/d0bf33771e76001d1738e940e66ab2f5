@@ -1,5 +1,0 @@
-package com.innovento.Repository;
-
-public interface UniversityMasterRepo {
-
-}

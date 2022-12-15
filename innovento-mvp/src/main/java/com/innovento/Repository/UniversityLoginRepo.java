@@ -13,7 +13,7 @@ public interface UniversityLoginRepo extends JpaRepository<UniversityLogin, Long
 	
 	public UniversityLogin findByuId(long u_id);
 
-	@Query(value = "SELECT u.u_id,u.university_name FROM university_master u", nativeQuery = true)
+	@Query(value = "SELECT u.u_id,u.university_name,u.university_id FROM university_master u;", nativeQuery = true)
 	public List<Object>  getUniversityNamesList();
 
 }

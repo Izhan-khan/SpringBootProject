@@ -2413,7 +2413,7 @@
 	</Table>
 	<Table
 		ClassName="UniversityCollegeRelation"
-		Include="False"
+		Include="True"
 		name="university_college_relation">
 		<Column
 			AttributeName="ucrId"
@@ -2447,7 +2447,7 @@
 	</Table>
 	<Table
 		ClassName="UniversityMaster"
-		Include="True"
+		Include="False"
 		name="university_master">
 		<Column
 			AttributeName="uId"

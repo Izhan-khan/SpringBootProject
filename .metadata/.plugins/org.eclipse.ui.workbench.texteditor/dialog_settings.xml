@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="findBy"/>
+		<item key="selection" value="@Path"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="@path"/>
+			<item value="university"/>
+			<item value="universityl"/>
+			<item value="universityna"/>
+			<item value="univers"/>
+			<item value="getuni"/>
+			<item value="universitna"/>
+			<item value="univer"/>
 			<item value="findBy"/>
 			<item value="authen"/>
-			<item value="univer"/>
 			<item value="saction"/>
 			<item value="sanc"/>
 			<item value="sac"/>
 			<item value="aca"/>
 			<item value="security"/>
-			<item value="aceda"/>
 		</list>
 		<list key="replacehistory">
 		</list>

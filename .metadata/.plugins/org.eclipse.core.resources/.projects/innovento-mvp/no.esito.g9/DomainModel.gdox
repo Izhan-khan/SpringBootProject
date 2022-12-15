@@ -9,23 +9,18 @@
 			ClassPersistent="True"
 			ModelVisibility="public"
 			PackageRefName="entities"
-			Tablename="university_master"
-			id="entities-UniversityMaster"
-			name="UniversityMaster">
+			Tablename="university_college_relation"
+			id="entities-UniversityCollegeRelation"
+			name="UniversityCollegeRelation">
 			<Attribute
-				AttributeColumnName="u_id"
-				AttributeIndex="True"
-				AttributeNotNull="True"
+				AttributeColumnName="ucr_id"
 				AttributePersistent="True"
-				AttributePrecision="19"
-				AttributePrimaryKey="True"
-				AttributePrimaryKeyCreator="DatabaseSystem"
+				AttributePrecision="10"
 				AttributeScale="0"
-				AttributeUnique="True"
-				ModelTypeRefName="long"
+				ModelTypeRefName="int"
 				ModelVisibility="public"
-				id="entities-UniversityMaster:uId"
-				name="uId"
+				id="entities-UniversityCollegeRelation:ucrId"
+				name="ucrId"
 			/>
 			<Attribute
 				AttributeByteLength="255"
@@ -33,98 +28,17 @@
 				AttributePersistent="True"
 				ModelTypeRefName="String"
 				ModelVisibility="public"
-				id="entities-UniversityMaster:universityId"
+				id="entities-UniversityCollegeRelation:universityId"
 				name="universityId"
 			/>
 			<Attribute
 				AttributeByteLength="255"
-				AttributeColumnName="university_name"
+				AttributeColumnName="college_id"
 				AttributePersistent="True"
 				ModelTypeRefName="String"
 				ModelVisibility="public"
-				id="entities-UniversityMaster:universityName"
-				name="universityName"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_type"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universityType"
-				name="universityType"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_state"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universityState"
-				name="universityState"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_district"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universityDistrict"
-				name="universityDistrict"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_address"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universityAddress"
-				name="universityAddress"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="year_university_declared"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:yearUniversityDeclared"
-				name="yearUniversityDeclared"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_specialized_in"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universitySpecializedIn"
-				name="universitySpecializedIn"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_location"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universityLocation"
-				name="universityLocation"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="university_upload_year"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:universityUploadYear"
-				name="universityUploadYear"
-			/>
-			<Attribute
-				AttributeByteLength="255"
-				AttributeColumnName="institute_added_survey_year"
-				AttributePersistent="True"
-				ModelTypeRefName="String"
-				ModelVisibility="public"
-				id="entities-UniversityMaster:instituteAddedSurveyYear"
-				name="instituteAddedSurveyYear"
+				id="entities-UniversityCollegeRelation:collegeId"
+				name="collegeId"
 			/>
 		</Class>
 	</Classes>

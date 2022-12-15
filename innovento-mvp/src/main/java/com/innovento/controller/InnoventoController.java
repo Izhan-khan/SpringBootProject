@@ -170,4 +170,10 @@ public class InnoventoController {
 		return innoventoMVPService.getUniversityMasterById(id);
 	}
 	
+	@GetMapping("/university/college/getListWithName/{university_id}")
+	public List<Object> getUniversityListWithName(@PathVariable("university_id") String university_id) {
+		System.out.println(university_id.trim());
+		return innoventoMVPService.getCollegeName(university_id.trim());		
+	}
+	
 }
