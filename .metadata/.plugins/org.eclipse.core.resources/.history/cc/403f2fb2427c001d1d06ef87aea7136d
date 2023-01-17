@@ -1,7 +1,0 @@
-package com.innovento.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface UniversityCollegeRelationRepo extends JpaRepository<T, ID> {
-
-}
