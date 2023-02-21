@@ -12,7 +12,7 @@ import com.innovento.model.UniversityCollegeRelation;
 @Repository
 public interface UniversityCollegeRelationRepo extends JpaRepository<UniversityCollegeRelation, Long> {
 
-	@Query(value = "select cm.college_name from college_master cm ,university_college_relation ucr where ucr.college_id = cm.college_id and ucr.university_id =:universityId  group by cm.college_name", nativeQuery = true)
+	@Query(value = "select cm.college_name from college_master cm ,university_college_relation ucr where ucr.college_id = cm.college_id and ucr.university_id =:universityId  group by cm.college_name order by cm.college_name ", nativeQuery = true)
 	public List<Object>  getCollegeNamesList(@Param("universityId") String universityId);
 
 	
