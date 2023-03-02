@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innovento.model.AcademicYear;
@@ -170,7 +171,26 @@ public class InnoventoController {
 		return innoventoMVPService.getUniversityMasterById(id);
 	}
 	
-	@GetMapping("/university/college/getListWithName/{university_id}")
+	@PostMapping("/university/compareColleges/")
+	public List<Object> getCollegesListOfList(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "programId") String programId
+			){
+		
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(programId);
+		
+		return innoventoMVPService.getIntakeByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programId.trim());
+	
+	}
+	
+	@GetMapping("/university/college/getList/{university_id}")
 	public List<Object> getCollegeListWithName(@PathVariable("university_id") String university_id) {
 		System.out.println(university_id.trim());
 		return innoventoMVPService.getCollegeName(university_id.trim());		

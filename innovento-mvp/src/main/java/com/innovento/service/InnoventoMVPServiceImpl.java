@@ -280,5 +280,16 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	public List<Object> getCollegeName(String university_id) {
 		return universityCollegeRelationRepo.getCollegeNamesList(university_id);
 	}
+	
+	@Override
+	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity,String loginInstitute,String comparingUniversity,String comparingInstitute,String programId) {
+		
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(universityCollegeRelationRepo.getIntakeByCollegeAndUniversity(loginUniversity,loginInstitute,programId));
+		listOfList.add(universityCollegeRelationRepo.getIntakeByCollegeAndUniversity(comparingUniversity,comparingInstitute,programId));
+		
+		return listOfList;
+	}
 
 }

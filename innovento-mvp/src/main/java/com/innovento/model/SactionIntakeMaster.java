@@ -47,7 +47,12 @@ public class SactionIntakeMaster implements Serializable {
     private long _2016_17_Count;
     @Column(name="2015_16_count", precision=10)
     private long _2015_16_Count;
-
+    @Column(name="college_id", precision=10)
+    private String collegeId;
+    @Column(name="university_id", precision=10)
+    private String universityId;
+    
+    
     /** Default constructor. */
     public SactionIntakeMaster() {
         super();
@@ -175,5 +180,23 @@ public class SactionIntakeMaster implements Serializable {
     public void set_2015_16_Count(long a_201516Count) {
         _2015_16_Count = a_201516Count;
     }
+
+	public String getCollegeId() {
+		return collegeId;
+	}
+
+	public void setCollegeId(String collegeId) {
+		this.collegeId = collegeId;
+	}
+
+	public String getUniversityId() {
+		return universityId;
+	}
+
+	public void setUniversityId(String universityId) {
+		this.universityId = universityId;
+	}
+
+	
 
 }

@@ -80,5 +80,8 @@ public interface InnoventoMVPService {
 
 	public List<Object> getCollegeName(String university_id);
 
+	List<Object> getIntakeByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String programId);
+
 	
 }

@@ -57,6 +57,10 @@ public class TotalStudentStrength implements Serializable {
     private int recievedFeeFromPrivateBodies;
     @Column(name="not_recieved_fee_reimbursement", precision=10)
     private int notRecievedFeeReimbursement;
+    @Column(name="college_id", precision=10)
+    private String collegeId;
+    @Column(name="university_id", precision=10)
+    private String universityId;
 
     /** Default constructor. */
     public TotalStudentStrength() {
@@ -297,6 +301,26 @@ public class TotalStudentStrength implements Serializable {
     public void setNotRecievedFeeReimbursement(int aNotRecievedFeeReimbursement) {
         notRecievedFeeReimbursement = aNotRecievedFeeReimbursement;
     }
+
+	public String getCollegeId() {
+		return collegeId;
+	}
+
+	public void setCollegeId(String collegeId) {
+		this.collegeId = collegeId;
+	}
+
+	public String getUniversityId() {
+		return universityId;
+	}
+
+	public void setUniversityId(String universityId) {
+		this.universityId = universityId;
+	}
+
+	
+    
+    
 
   
 }
