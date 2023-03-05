@@ -171,15 +171,21 @@ public class InnoventoController {
 		return innoventoMVPService.getUniversityMasterById(id);
 	}
 	
-	@PostMapping("/university/compareColleges/")
-	public List<Object> getCollegesListOfList(
+	@GetMapping("/university/college/getList/{university_id}")
+	public List<Object> getCollegeListWithName(@PathVariable("university_id") String university_id) {
+		System.out.println(university_id.trim());
+		return innoventoMVPService.getCollegeName(university_id.trim());		
+	}
+	
+	@PostMapping("/university/compareColleges/intake")
+	public List<Object> getIntakeByCollegeAndUniversity(
 			@RequestParam(name = "loginUniversity") String loginUniversity,
 			@RequestParam(name = "loginInstitute") String loginInstitute,
 			@RequestParam(name = "comparingUniversity") String comparingUniversity,
 			@RequestParam(name = "comparingInstitute") String comparingInstitute,
 			@RequestParam(name = "programId") String programId
 			){
-		
+			
 		System.out.println(loginUniversity);
 		System.out.println(loginInstitute);
 		System.out.println(comparingUniversity);
@@ -190,10 +196,103 @@ public class InnoventoController {
 	
 	}
 	
-	@GetMapping("/university/college/getList/{university_id}")
-	public List<Object> getCollegeListWithName(@PathVariable("university_id") String university_id) {
-		System.out.println(university_id.trim());
-		return innoventoMVPService.getCollegeName(university_id.trim());		
+	@PostMapping("/university/compareColleges/totalStudents")
+	public List<Object> getTotalStudentsByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "programId") String programId
+			){
+			
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(programId);
+		
+		return innoventoMVPService.getTotalStudentsByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programId.trim());
+	
 	}
+	
+	@PostMapping("/university/compareColleges/phdPersuing")
+	public List<Object> getPhdPersuingByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "programTimeId") String programTimeId
+			){
+			
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(programTimeId);
+		
+		return innoventoMVPService.getPhdPersuingByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programTimeId.trim());
+	
+	}
+	
+
+	@PostMapping("/university/compareColleges/phdGraduated")
+	public List<Object> getPhdGraduatedByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "programTimeId") String programTimeId
+			){
+		
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(programTimeId);
+		
+		return innoventoMVPService.getPhdGraduatedByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programTimeId.trim());
+	
+	}
+	
+
+	@PostMapping("/university/compareColleges/sponsoredResearch")
+	public List<Object> getSponsoredResearchByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "researchDetailsId") String researchDetailsId
+			){
+			
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(researchDetailsId);
+		
+		return innoventoMVPService.getSponsoredResearchByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),researchDetailsId.trim());
+	
+	}
+	
+
+	@PostMapping("/university/compareColleges/consultingProjectResearch")
+	public List<Object> getConsultingProjectResearchByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "researchDetailsId") String researchDetailsId
+			){
+		
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(researchDetailsId);
+		
+		return innoventoMVPService.getConsultingProjectResearchByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),researchDetailsId.trim());
+	
+	}
+	
 	
 }

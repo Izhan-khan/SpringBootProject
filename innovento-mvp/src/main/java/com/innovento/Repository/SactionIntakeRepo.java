@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.innovento.model.SactionIntakeMaster;
@@ -27,5 +28,15 @@ public interface SactionIntakeRepo extends JpaRepository<SactionIntakeMaster, Lo
 			+ "where p.id=s.program_id"
 			, nativeQuery = true)
 	public List<Object> findSactionApprovedListWithPrograms();
+	
+	
+	@Query(value = "SELECT p.program_name,m.2015_16_count,m.2016_17_count,m.2017_18_count,m.2018_19_count,m.2019_20_count,m.2020_21_count,"
+			+ "			c.college_name ,u.university_name"
+			+ "			FROM saction_approved_intake_master m , program_master p,college_master c,"
+			+ "			university_master u where  m.college_id=c.college_id AND m.university_id= TRIM(LEADING ' ' FROM u.university_id )"
+			+ "			AND m.university_id=:universityId AND m.college_id =:collegeId "
+			+ "			AND m.program_id=:programId AND m.program_id=p.id;", nativeQuery = true)
+	public List<Object>  getIntakeByCollegeAndUniversity(@Param("universityId") String universityId,@Param("collegeId") String collegeId,@Param("programId") String programId);
+	
 
 }

@@ -282,12 +282,73 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 	
 	@Override
-	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity,String loginInstitute,String comparingUniversity,String comparingInstitute,String programId) {
+	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity,String loginInstitute,
+			String comparingUniversity,String comparingInstitute,String programId) {
 		
 		List<Object> listOfList = new ArrayList<>();
 		
-		listOfList.add(universityCollegeRelationRepo.getIntakeByCollegeAndUniversity(loginUniversity,loginInstitute,programId));
-		listOfList.add(universityCollegeRelationRepo.getIntakeByCollegeAndUniversity(comparingUniversity,comparingInstitute,programId));
+		listOfList.add(sactionIntakeRepo.getIntakeByCollegeAndUniversity(loginUniversity,loginInstitute,programId));
+		listOfList.add(sactionIntakeRepo.getIntakeByCollegeAndUniversity(comparingUniversity,comparingInstitute,programId));
+		
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getTotalStudentsByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String programId) {
+		
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(totalStudentRepo.getTotalStudentByCollegeAndUniversity(loginUniversity,loginInstitute,programId));
+		listOfList.add(totalStudentRepo.getTotalStudentByCollegeAndUniversity(comparingUniversity,comparingInstitute,programId));
+		
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getPhdGraduatedByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String programTimeId) {
+
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(phdGraduatedRepo.getPhdGraduatedByCollegeAndUniversity(loginUniversity,loginInstitute,programTimeId));
+		listOfList.add(phdGraduatedRepo.getPhdGraduatedByCollegeAndUniversity(comparingUniversity,comparingInstitute,programTimeId));
+		
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getPhdPersuingByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String programTimeId) {
+		
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(phdPersuingRepo.getPhdPersuingByCollegeAndUniversity(loginUniversity,loginInstitute,programTimeId));
+		listOfList.add(phdPersuingRepo.getPhdPersuingByCollegeAndUniversity(comparingUniversity,comparingInstitute,programTimeId));
+		
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getSponsoredResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String researchDetailsId) {
+		
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(sponsoredResearchDetailsRepo.getSponsoredResearchByCollegeAndUniversity(loginUniversity,loginInstitute,researchDetailsId));
+		listOfList.add(sponsoredResearchDetailsRepo.getSponsoredResearchByCollegeAndUniversity(comparingUniversity,comparingInstitute,researchDetailsId));
+		
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getConsultingProjectResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String researchDetailsId) {
+
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(consultingProjectDetailsRepo.getConsultingProjectResearchByCollegeAndUniversity(loginUniversity,loginInstitute,researchDetailsId));
+		listOfList.add(consultingProjectDetailsRepo.getConsultingProjectResearchByCollegeAndUniversity(comparingUniversity,comparingInstitute,researchDetailsId));
 		
 		return listOfList;
 	}

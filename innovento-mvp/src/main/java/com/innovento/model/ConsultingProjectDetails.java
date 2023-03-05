@@ -23,6 +23,11 @@ public class ConsultingProjectDetails {
 	public long _2019_2020_count;
 	@Column(name = "2018_2019_count", precision = 10)
 	public long _2018_2019_count;
+	@Column(name="college_id", precision=10)
+    private String collegeId;
+    @Column(name="university_id", precision=10)
+    private String universityId;
+    
 	public long getId() {
 		return id;
 	}
@@ -52,6 +57,18 @@ public class ConsultingProjectDetails {
 	}
 	public void set_2018_2019_count(long _2018_2019_count) {
 		this._2018_2019_count = _2018_2019_count;
+	}
+	public String getCollegeId() {
+		return collegeId;
+	}
+	public void setCollegeId(String collegeId) {
+		this.collegeId = collegeId;
+	}
+	public String getUniversityId() {
+		return universityId;
+	}
+	public void setUniversityId(String universityId) {
+		this.universityId = universityId;
 	}
 	
 	

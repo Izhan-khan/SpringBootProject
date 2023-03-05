@@ -18,6 +18,10 @@ public class Phd_persuingTill2021 {
     private String programTimeId;
     @Column(name="totalStudents_count", precision=10)
     public long totalStudentsCount;
+    @Column(name="college_id", precision=10)
+    private String collegeId;
+    @Column(name="university_id", precision=10)
+    private String universityId;
     
     
 	public long getId() {
@@ -38,6 +42,18 @@ public class Phd_persuingTill2021 {
 	}
 	public void setTotalStudentsCount(long totalStudentsCount) {
 		this.totalStudentsCount = totalStudentsCount;
+	}
+	public String getCollegeId() {
+		return collegeId;
+	}
+	public void setCollegeId(String collegeId) {
+		this.collegeId = collegeId;
+	}
+	public String getUniversityId() {
+		return universityId;
+	}
+	public void setUniversityId(String universityId) {
+		this.universityId = universityId;
 	}
 	@Override
 	public String toString() {

@@ -17,11 +17,5 @@ public interface UniversityCollegeRelationRepo extends JpaRepository<UniversityC
 	public List<Object>  getCollegeNamesList(@Param("universityId") String universityId);
 
 
-	@Query(value = "SELECT p.program_name,m.2015_16_count,m.2016_17_count,m.2017_18_count,m.2018_19_count,m.2019_20_count,m.2020_21_count, c.college_name ,u.university_name\r\n"
-			+ "FROM saction_approved_intake_master m , program_master p,college_master c,\r\n"
-			+ "university_master u where  m.college_id=c.college_id AND m.university_id= TRIM(LEADING ' ' FROM u.university_id )\r\n"
-			+ "AND m.university_id=:universityId AND m.college_id =:collegeId \r\n"
-			+ "AND m.program_id=:programId AND m.program_id=p.id;", nativeQuery = true)
-	public List<Object>  getIntakeByCollegeAndUniversity(@Param("universityId") String universityId,@Param("collegeId") String collegeId,@Param("programId") String programId);
 	
 }

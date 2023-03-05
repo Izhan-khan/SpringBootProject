@@ -83,5 +83,21 @@ public interface InnoventoMVPService {
 	List<Object> getIntakeByCollegeAndUniversity(String loginUniversity, String loginInstitute,
 			String comparingUniversity, String comparingInstitute,String programId);
 
+	List<Object> getTotalStudentsByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String programId);
+
+	List<Object> getPhdPersuingByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String programTimeId);
+
+	List<Object> getPhdGraduatedByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String programTimeId);
+
+	List<Object> getSponsoredResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String researchDetailsId);
+
+	List<Object> getConsultingProjectResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String researchDetailsId);
+
+	
 	
 }
