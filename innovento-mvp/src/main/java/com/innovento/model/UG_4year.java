@@ -21,7 +21,9 @@ public class UG_4year {
 	private long studentPlacedCount;
 	private long medianSalaryOfPlacedStudentCount;
 	private long studentSelectedForHigerStudiesCount;
+	@Column(name = "college_id", precision = 10)
 	private String collegeId;
+	@Column(name = "university_id", precision = 10)
 	private String universityId;
 
 	public long getId() {

@@ -98,6 +98,11 @@ public interface InnoventoMVPService {
 	List<Object> getConsultingProjectResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
 			String comparingUniversity, String comparingInstitute,String researchDetailsId);
 
+	List<Object> getUG_4_YearByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String academicYearId);
+
+	List<Object> getPG_2_YearByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute,String academicYearId);
 	
 	
 }

@@ -27,14 +27,6 @@ public class SactionIntakeMaster implements Serializable {
     private long id;
     @Column(name="program_id", precision=10) 
     private long programId;
-    public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	@Column(name="2020_21_count", precision=10)
     private long _2020_21_Count;
     @Column(name="2019_20_count", precision=10)
@@ -70,6 +62,14 @@ public class SactionIntakeMaster implements Serializable {
      *
      * @return the current value of _202021Count
      */
+    public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
     public long get_2020_21_Count() {
         return _2020_21_Count;
     }

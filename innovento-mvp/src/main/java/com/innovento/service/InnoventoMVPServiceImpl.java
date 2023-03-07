@@ -353,4 +353,28 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		return listOfList;
 	}
 
+	@Override
+	public List<Object> getUG_4_YearByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String academicYearId) {
+
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(ug_4yearRepo.getUG_4_YearByCollegeAndUniversity(loginUniversity,loginInstitute,academicYearId));
+		listOfList.add(ug_4yearRepo.getUG_4_YearByCollegeAndUniversity(comparingUniversity,comparingInstitute,academicYearId));
+		
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getPG_2_YearByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String academicYearId) {
+
+		List<Object> listOfList = new ArrayList<>();
+		
+		listOfList.add(pg_2yearRepo.getPG_2_YearByCollegeAndUniversity(loginUniversity,loginInstitute,academicYearId));
+		listOfList.add(pg_2yearRepo.getPG_2_YearByCollegeAndUniversity(comparingUniversity,comparingInstitute,academicYearId));
+		
+		return listOfList;
+	}
+
 }

@@ -24,7 +24,6 @@
     <fullyQualifiedTypeName name="org.json.JSONObject"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.PhdGraduatedRepo"/>
-    <fullyQualifiedTypeName name="com.innovento.Repository.PhdPersuingRepo"/>
     <fullyQualifiedTypeName name="com.innovento.model.Phd_graduated_students"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.innovento.model.Phd_graduated_student"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.support.SpringBootServletInitializer"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort.Direction"/>
+    <fullyQualifiedTypeName name="com.innovento.Repository.PhdPersuingRepo"/>
 </qualifiedTypeNameHistroy>

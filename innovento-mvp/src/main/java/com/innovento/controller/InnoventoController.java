@@ -294,5 +294,44 @@ public class InnoventoController {
 	
 	}
 	
+	@PostMapping("/university/compareColleges/ug")
+	public List<Object> getUG_4_YearByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "academicYearId") String academicYearId
+			){
+			
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(academicYearId);
+		
+		return innoventoMVPService.getUG_4_YearByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),academicYearId.trim());
+	
+	}
+	
+
+	@PostMapping("/university/compareColleges/pg")
+	public List<Object> getPG_2_YearByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "academicYearId") String academicYearId
+			){
+		
+		System.out.println(loginUniversity);
+		System.out.println(loginInstitute);
+		System.out.println(comparingUniversity);
+		System.out.println(comparingInstitute);
+		System.out.println(academicYearId);
+		
+		return innoventoMVPService.getPG_2_YearByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),academicYearId.trim());
+	
+	}
+	
 	
 }

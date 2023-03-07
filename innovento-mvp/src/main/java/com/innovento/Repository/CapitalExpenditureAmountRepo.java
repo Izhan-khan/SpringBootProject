@@ -7,5 +7,7 @@ import com.innovento.model.CapitalExpenditureAmount;
 
 @Repository
 public interface CapitalExpenditureAmountRepo extends JpaRepository<CapitalExpenditureAmount, Long> {
+	
+	
 
 }
