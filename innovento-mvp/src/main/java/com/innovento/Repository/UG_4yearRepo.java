@@ -12,6 +12,9 @@ import com.innovento.model.UG_4year;
 @Repository
 public interface UG_4yearRepo extends JpaRepository<UG_4year, Long>{
 	
+	public List<UG_4year> findAllByCollegeId(String collegeId);
+
+	
 	@Query(value = "SELECT a.academic_year,ug.first_year_student_admitted_count,ug.first_year_student_intake_count,ug.lateral_entry_student_count,ug.median_salary_of_placed_student_count,\r\n"
 			+ "ug.student_graduated_in_min_time_count,ug.student_placed_count,ug.student_selected_for_higer_studies_count,c.college_name ,u.university_name\r\n"
 			+ "FROM ug_4_year ug , academic_year a, university_master u ,college_master c\r\n"

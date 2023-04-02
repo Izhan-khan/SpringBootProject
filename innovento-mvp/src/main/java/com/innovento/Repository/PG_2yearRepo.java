@@ -12,6 +12,8 @@ import com.innovento.model.PG_2year;
 public interface PG_2yearRepo extends JpaRepository<PG_2year, Long> {
 
 
+	public List<PG_2year> findAllByCollegeId(String collegeId);
+
 
 @Query(value = "SELECT a.academic_year,pg.first_year_student_admitted,pg.first_year_student_intake_count,pg.median_salary_of_placed_student_count,\r\n"
 		+ "pg.student_graduated_in_min_time_count,pg.student_placed_count,pg.student_selected_for_higer_studies_count,c.college_name ,u.university_name\r\n"

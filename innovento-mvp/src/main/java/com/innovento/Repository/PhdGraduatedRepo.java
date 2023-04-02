@@ -12,6 +12,9 @@ import com.innovento.model.Phd_graduated_student;
 @Repository
 public interface PhdGraduatedRepo extends JpaRepository<Phd_graduated_student, Long> {
 	
+	public List<Phd_graduated_student> findAllByCollegeId(String collegeId);
+
+	
 	@Query(value = "SELECT p.program_time,sg.2018_2019_count,sg.2019_2020_count , sg.2020_2021_count, c.college_name ,u.university_name "
 			+ "FROM student_graduated_phd sg , program_time p, university_master u ,college_master c "
 			+ "where  sg.college_id=c.college_id AND sg.university_id= TRIM(LEADING ' ' FROM u.university_id ) "

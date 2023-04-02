@@ -11,12 +11,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Version;
 
 @Entity(name="university_master")
 public class UniversityMaster implements Serializable {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="u_id", unique=true, nullable=false, precision=19)
     private long uId;

@@ -3,20 +3,22 @@
 package com.innovento.model;
 
 import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Version;
 
 @Entity(name="total_student_strength")
 public class TotalStudentStrength implements Serializable {
 
-    /** Primary key. */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** Primary key. */
     protected static final String PK = "id";
 
     @Id

@@ -12,6 +12,9 @@ import com.innovento.model.ConsultingProjectDetails;
 @Repository
 public interface ConsultingProjectDetailsRepo extends JpaRepository<ConsultingProjectDetails, Long> {
 	
+	public List<ConsultingProjectDetails> findAllByCollegeId(String collegeId);
+
+	
 	@Query(value = "SELECT r.reaseach_details,cp.2018_2019_count,cp.2019_2020_count,cp.2020_2021_count,c.college_name ,u.university_name\r\n"
 			+ "FROM consulting_project_details cp , research_details r, university_master u ,college_master c\r\n"
 			+ "where  cp.college_id=c.college_id AND cp.university_id= TRIM(LEADING ' ' FROM u.university_id )\r\n"

@@ -13,6 +13,10 @@ import javax.persistence.Id;
 @Entity(name="university_college_relation")
 public class UniversityCollegeRelation implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="ucr_id", precision=10)
 	@GeneratedValue(strategy=GenerationType.AUTO)

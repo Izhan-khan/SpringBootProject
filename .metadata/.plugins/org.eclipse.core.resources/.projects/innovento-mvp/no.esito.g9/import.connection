@@ -242,6 +242,26 @@
 			AttributeName="financialResources"
 			name="financial_resources"
 		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
+	</Table>
+	<Table
+		ClassName="CapitalExpenditureResources"
+		name="capital_expenditure_resources">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="name"
+			name="name"
+		/>
 	</Table>
 	<Table
 		ClassName="Category"
@@ -283,7 +303,7 @@
 	</Table>
 	<Table
 		ClassName="CollegeMaster"
-		Include="False"
+		Include="True"
 		name="college_master">
 		<Column
 			AttributeName="cId"
@@ -410,6 +430,14 @@
 		<Column
 			AttributeName="researchDetailsId"
 			name="research_details_id"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
 		/>
 	</Table>
 	<Table
@@ -782,6 +810,26 @@
 			AttributeName="financialResources"
 			name="financial_resources"
 		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
+	</Table>
+	<Table
+		ClassName="OperationExpenditureResources"
+		name="operation_expenditure_resources">
+		<Column
+			AttributeName="id"
+			name="id"
+		/>
+		<Column
+			AttributeName="name"
+			name="name"
+		/>
 	</Table>
 	<Table
 		ClassName="Payment"
@@ -851,6 +899,14 @@
 		<Column
 			AttributeName="studentSelectedForHigerStudiesCount"
 			name="student_selected_for_higer_studies_count"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
 		/>
 	</Table>
 	<Table
@@ -1471,6 +1527,14 @@
 			AttributeName="programId"
 			name="program_id"
 		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
 	</Table>
 	<Table
 		ClassName="SactionApprovedIntakeMasterHistory"
@@ -1548,6 +1612,14 @@
 		<Column
 			AttributeName="researchDetailsId"
 			name="research_details_id"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
 		/>
 	</Table>
 	<Table
@@ -2154,6 +2226,14 @@
 			AttributeName="programTimeId"
 			name="program_time_id"
 		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
 	</Table>
 	<Table
 		ClassName="StudentPersuingPhdTill202021"
@@ -2170,6 +2250,14 @@
 		<Column
 			AttributeName="totalStudentsCount"
 			name="total_students_count"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
 		/>
 	</Table>
 	<Table
@@ -2323,6 +2411,14 @@
 			AttributeName="programId"
 			name="program_id"
 		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
+		/>
 	</Table>
 	<Table
 		ClassName="Ug4Year"
@@ -2363,6 +2459,14 @@
 		<Column
 			AttributeName="studentSelectedForHigerStudiesCount"
 			name="student_selected_for_higer_studies_count"
+		/>
+		<Column
+			AttributeName="collegeId"
+			name="college_id"
+		/>
+		<Column
+			AttributeName="universityId"
+			name="university_id"
 		/>
 	</Table>
 	<Table
@@ -2413,7 +2517,7 @@
 	</Table>
 	<Table
 		ClassName="UniversityCollegeRelation"
-		Include="True"
+		Include="False"
 		name="university_college_relation">
 		<Column
 			AttributeName="ucrId"

@@ -10,14 +10,15 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.innovento.Repository.AcademicYearRepo;
 import com.innovento.Repository.CapitalExpenditureAmountRepo;
+import com.innovento.Repository.CapitalExpenditureResourcesRepo;
+import com.innovento.Repository.CollegeMasterRepo;
 import com.innovento.Repository.ConsultingProjectDetailsRepo;
 import com.innovento.Repository.OperationExpenditureAmountRepo;
+import com.innovento.Repository.OperationExpenditureResourcesRepo;
 import com.innovento.Repository.PG_2yearRepo;
 import com.innovento.Repository.PhdGraduatedRepo;
 import com.innovento.Repository.PhdPersuingRepo;
@@ -34,9 +35,12 @@ import com.innovento.Repository.UniversityMasterRepo;
 import com.innovento.Repository.UserRepo;
 import com.innovento.model.AcademicYear;
 import com.innovento.model.CapitalExpenditureAmount;
+import com.innovento.model.CapitalExpenditureResources;
+import com.innovento.model.CollegeMaster;
 import com.innovento.model.ConsultingProjectDetails;
 import com.innovento.model.JwtRequest;
 import com.innovento.model.OperationExpenditureAmount;
+import com.innovento.model.OperationExpenditureResources;
 import com.innovento.model.PG_2year;
 import com.innovento.model.Phd_graduated_student;
 import com.innovento.model.Phd_persuingTill2021;
@@ -87,10 +91,16 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	private ConsultingProjectDetailsRepo consultingProjectDetailsRepo;
 
 	@Autowired
-	private CapitalExpenditureAmountRepo capitalExpenditureAmountRepo;
+	private CapitalExpenditureResourcesRepo capitalExpenditureResourcesRepo;
 
 	@Autowired
 	private OperationExpenditureAmountRepo operationExpenditureAmountRepo;
+
+	@Autowired
+	private CapitalExpenditureAmountRepo capitalExpenditureAmountRepo;
+
+	@Autowired
+	private OperationExpenditureResourcesRepo operationExpenditureResourcesRepo;
 
 	@Autowired
 	private AcademicYearRepo academicYearRepo;
@@ -100,9 +110,12 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 
 	@Autowired
 	private PG_2yearRepo pg_2yearRepo;
-	
+
 	@Autowired
 	private UniversityMasterRepo universityMasterRepo;
+	
+	@Autowired
+	private CollegeMasterRepo collegeMasterRepo;
 	
 	@Autowired
 	private UniversityCollegeRelationRepo universityCollegeRelationRepo;
@@ -121,7 +134,7 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 			JwtRequest jwtRequest = userRepo.findByUsername(username);
 			if (jwtRequest != null && jwtRequest.getUsername().equals(username)) {
 				return new User(jwtRequest.getUsername(), jwtRequest.getPassword(), new ArrayList<>());
-			}else {
+			} else {
 				throw new UsernameNotFoundException(username + " Not Found");
 			}
 		}
@@ -132,20 +145,52 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	public ProgramMaster getProgramFromId(long id) {
 		return programMasterRepo.findById(id).get();
 	}
+	
+	@Override
+	public ProgramTime getProgramTimeById(long id) {
+		return programTimeRepo.findById(id).get();
+	}
+
+	@Override
+	public ResearchDetails getResearchDetailsById(long id) {
+		return researchDetailsRepo.findById(id).get();
+	}
+
+	@Override
+	public AcademicYear getAcademicYearFromId(long id) {
+		return academicYearRepo.findById(id).get();
+	}
+
 
 	@Override
 	public List<ProgramMaster> getProgramList() {
 		return programMasterRepo.findAll();
 	}
-
+	
 	@Override
-	public List<SactionIntakeMaster> getsactionApprovedList() {
-		return sactionIntakeRepo.findAll();
+	public UniversityMaster getUniversityMasterById(long uId) {
+		return universityMasterRepo.findByuId(uId);
+	}
+	
+	@Override
+	public CollegeMaster getCollegeMasterById(long cId) {
+		return collegeMasterRepo.findBycId(cId);
 	}
 
 	@Override
-	public List<TotalStudentStrength> getTotalStudentList() {
-		return totalStudentRepo.findAll();
+	public CollegeMaster getCollegeMasterByCollegeId(String collegeId) {
+		return collegeMasterRepo.findByCollegeId(collegeId);
+	}
+
+	
+	@Override
+	public List<SactionIntakeMaster> getsactionApprovedList(String collegeId) {
+		return (List<SactionIntakeMaster>) sactionIntakeRepo.findAllByCollegeId(collegeId);
+	}
+
+	@Override
+	public List<TotalStudentStrength> getTotalStudentList(String collegeId) {
+		return totalStudentRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -171,8 +216,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public List<Phd_graduated_student> getPhdGraduatedStudentsList() {
-		return phdGraduatedRepo.findAll();
+	public List<Phd_graduated_student> getPhdGraduatedStudentsList(String collegeId) {
+		return phdGraduatedRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -181,8 +226,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public List<Phd_persuingTill2021> getPhdPersuingStudentsList() {
-		return phdPersuingRepo.findAll();
+	public List<Phd_persuingTill2021> getPhdPersuingStudentsList(String collegeId) {
+		return phdPersuingRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -190,19 +235,10 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		phdPersuingRepo.saveAll(phd_persuingStudentsList);
 	}
 
+	
 	@Override
-	public ProgramTime getProgramTimeById(long id) {
-		return programTimeRepo.findById(id).get();
-	}
-
-	@Override
-	public ResearchDetails getResearchDetailsById(long id) {
-		return researchDetailsRepo.findById(id).get();
-	}
-
-	@Override
-	public List<SponsoredResearchDetails> getSponsoredResearchDetailsList() {
-		return sponsoredResearchDetailsRepo.findAll();
+	public List<SponsoredResearchDetails> getSponsoredResearchDetailsList(String collegeId) {
+		return sponsoredResearchDetailsRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -211,8 +247,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public List<ConsultingProjectDetails> getConsultingProjectDetailsList() {
-		return consultingProjectDetailsRepo.findAll();
+	public List<ConsultingProjectDetails> getConsultingProjectDetailsList(String collegeId) {
+		return consultingProjectDetailsRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -221,8 +257,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public List<CapitalExpenditureAmount> getCapitalExpenditureAmountList() {
-		return capitalExpenditureAmountRepo.findAll();
+	public List<CapitalExpenditureAmount> getCapitalExpenditureAmountList(String collegeId) {
+		return capitalExpenditureAmountRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -231,8 +267,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public List<OperationExpenditureAmount> getOperationExpenditureAmountList() {
-		return operationExpenditureAmountRepo.findAll();
+	public List<OperationExpenditureAmount> getOperationExpenditureAmountList(String collegeId) {
+		return operationExpenditureAmountRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -240,19 +276,15 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		operationExpenditureAmountRepo.saveAll(operationExpenditureAmountsList);
 	}
 
-	@Override
-	public AcademicYear getAcademicYearFromId(long id) {
-		return academicYearRepo.findById(id).get();
-	}
-
+	
 	@Override
 	public List<AcademicYear> getAcademicYearList() {
 		return academicYearRepo.findAll();
 	}
 
 	@Override
-	public List<UG_4year> getUG_4yearList() {
-		return ug_4yearRepo.findAll();
+	public List<UG_4year> getUG_4yearList(String collegeId) {
+		return ug_4yearRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -261,8 +293,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public List<PG_2year> getPG_2yearList() {
-		return pg_2yearRepo.findAll();
+	public List<PG_2year> getPG_2yearList(String collegeId) {
+		return pg_2yearRepo.findAllByCollegeId(collegeId);
 	}
 
 	@Override
@@ -271,37 +303,40 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	}
 
 	@Override
-	public UniversityMaster getUniversityMasterById(long uId) {
-		return universityMasterRepo.findByuId(uId);
-
-	}
-
-	@Override
-	public List<Object> getCollegeName(String university_id) {
+	public List<Object> getCollegeNamesList(String university_id) {
 		return universityCollegeRelationRepo.getCollegeNamesList(university_id);
 	}
+
+	@Override
+	public List<Object> getUniversityNamesList(String collegeId) {
+		return universityCollegeRelationRepo.getUniversityNamesList(collegeId);
+	}
+
 	
 	@Override
-	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity,String loginInstitute,
-			String comparingUniversity,String comparingInstitute,String programId) {
-		
+	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String programId) {
+
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(sactionIntakeRepo.getIntakeByCollegeAndUniversity(loginUniversity,loginInstitute,programId));
-		listOfList.add(sactionIntakeRepo.getIntakeByCollegeAndUniversity(comparingUniversity,comparingInstitute,programId));
-		
+
+		listOfList.add(sactionIntakeRepo.getIntakeByCollegeAndUniversity(loginUniversity, loginInstitute, programId));
+		listOfList.add(
+				sactionIntakeRepo.getIntakeByCollegeAndUniversity(comparingUniversity, comparingInstitute, programId));
+
 		return listOfList;
 	}
 
 	@Override
 	public List<Object> getTotalStudentsByCollegeAndUniversity(String loginUniversity, String loginInstitute,
 			String comparingUniversity, String comparingInstitute, String programId) {
-		
+
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(totalStudentRepo.getTotalStudentByCollegeAndUniversity(loginUniversity,loginInstitute,programId));
-		listOfList.add(totalStudentRepo.getTotalStudentByCollegeAndUniversity(comparingUniversity,comparingInstitute,programId));
-		
+
+		listOfList.add(
+				totalStudentRepo.getTotalStudentByCollegeAndUniversity(loginUniversity, loginInstitute, programId));
+		listOfList.add(totalStudentRepo.getTotalStudentByCollegeAndUniversity(comparingUniversity, comparingInstitute,
+				programId));
+
 		return listOfList;
 	}
 
@@ -310,46 +345,54 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 			String comparingUniversity, String comparingInstitute, String programTimeId) {
 
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(phdGraduatedRepo.getPhdGraduatedByCollegeAndUniversity(loginUniversity,loginInstitute,programTimeId));
-		listOfList.add(phdGraduatedRepo.getPhdGraduatedByCollegeAndUniversity(comparingUniversity,comparingInstitute,programTimeId));
-		
+
+		listOfList.add(
+				phdGraduatedRepo.getPhdGraduatedByCollegeAndUniversity(loginUniversity, loginInstitute, programTimeId));
+		listOfList.add(phdGraduatedRepo.getPhdGraduatedByCollegeAndUniversity(comparingUniversity, comparingInstitute,
+				programTimeId));
+
 		return listOfList;
 	}
 
 	@Override
 	public List<Object> getPhdPersuingByCollegeAndUniversity(String loginUniversity, String loginInstitute,
 			String comparingUniversity, String comparingInstitute, String programTimeId) {
-		
+
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(phdPersuingRepo.getPhdPersuingByCollegeAndUniversity(loginUniversity,loginInstitute,programTimeId));
-		listOfList.add(phdPersuingRepo.getPhdPersuingByCollegeAndUniversity(comparingUniversity,comparingInstitute,programTimeId));
-		
+
+		listOfList.add(
+				phdPersuingRepo.getPhdPersuingByCollegeAndUniversity(loginUniversity, loginInstitute, programTimeId));
+		listOfList.add(phdPersuingRepo.getPhdPersuingByCollegeAndUniversity(comparingUniversity, comparingInstitute,
+				programTimeId));
+
 		return listOfList;
 	}
 
 	@Override
 	public List<Object> getSponsoredResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
 			String comparingUniversity, String comparingInstitute, String researchDetailsId) {
-		
+
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(sponsoredResearchDetailsRepo.getSponsoredResearchByCollegeAndUniversity(loginUniversity,loginInstitute,researchDetailsId));
-		listOfList.add(sponsoredResearchDetailsRepo.getSponsoredResearchByCollegeAndUniversity(comparingUniversity,comparingInstitute,researchDetailsId));
-		
+
+		listOfList.add(sponsoredResearchDetailsRepo.getSponsoredResearchByCollegeAndUniversity(loginUniversity,
+				loginInstitute, researchDetailsId));
+		listOfList.add(sponsoredResearchDetailsRepo.getSponsoredResearchByCollegeAndUniversity(comparingUniversity,
+				comparingInstitute, researchDetailsId));
+
 		return listOfList;
 	}
 
 	@Override
-	public List<Object> getConsultingProjectResearchByCollegeAndUniversity(String loginUniversity, String loginInstitute,
-			String comparingUniversity, String comparingInstitute, String researchDetailsId) {
+	public List<Object> getConsultingProjectResearchByCollegeAndUniversity(String loginUniversity,
+			String loginInstitute, String comparingUniversity, String comparingInstitute, String researchDetailsId) {
 
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(consultingProjectDetailsRepo.getConsultingProjectResearchByCollegeAndUniversity(loginUniversity,loginInstitute,researchDetailsId));
-		listOfList.add(consultingProjectDetailsRepo.getConsultingProjectResearchByCollegeAndUniversity(comparingUniversity,comparingInstitute,researchDetailsId));
-		
+
+		listOfList.add(consultingProjectDetailsRepo.getConsultingProjectResearchByCollegeAndUniversity(loginUniversity,
+				loginInstitute, researchDetailsId));
+		listOfList.add(consultingProjectDetailsRepo.getConsultingProjectResearchByCollegeAndUniversity(
+				comparingUniversity, comparingInstitute, researchDetailsId));
+
 		return listOfList;
 	}
 
@@ -358,10 +401,12 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 			String comparingUniversity, String comparingInstitute, String academicYearId) {
 
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(ug_4yearRepo.getUG_4_YearByCollegeAndUniversity(loginUniversity,loginInstitute,academicYearId));
-		listOfList.add(ug_4yearRepo.getUG_4_YearByCollegeAndUniversity(comparingUniversity,comparingInstitute,academicYearId));
-		
+
+		listOfList
+				.add(ug_4yearRepo.getUG_4_YearByCollegeAndUniversity(loginUniversity, loginInstitute, academicYearId));
+		listOfList.add(ug_4yearRepo.getUG_4_YearByCollegeAndUniversity(comparingUniversity, comparingInstitute,
+				academicYearId));
+
 		return listOfList;
 	}
 
@@ -370,11 +415,53 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 			String comparingUniversity, String comparingInstitute, String academicYearId) {
 
 		List<Object> listOfList = new ArrayList<>();
-		
-		listOfList.add(pg_2yearRepo.getPG_2_YearByCollegeAndUniversity(loginUniversity,loginInstitute,academicYearId));
-		listOfList.add(pg_2yearRepo.getPG_2_YearByCollegeAndUniversity(comparingUniversity,comparingInstitute,academicYearId));
-		
+
+		listOfList
+				.add(pg_2yearRepo.getPG_2_YearByCollegeAndUniversity(loginUniversity, loginInstitute, academicYearId));
+		listOfList.add(pg_2yearRepo.getPG_2_YearByCollegeAndUniversity(comparingUniversity, comparingInstitute,
+				academicYearId));
+
 		return listOfList;
 	}
+
+	@Override
+	public CapitalExpenditureResources getCapitalExpenditureResourcesById(long id) {
+		return capitalExpenditureResourcesRepo.findById(id).get();
+	}
+
+	@Override
+	public OperationExpenditureResources getOperationExpenditureResourcesById(long id) {
+		return operationExpenditureResourcesRepo.findById(id).get();
+	}
+
+	@Override
+	public List<Object> getCapitalExpenditureByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String financialResources) {
+		
+		List<Object> listOfList = new ArrayList<>();
+
+		listOfList
+				.add(capitalExpenditureAmountRepo.getCapitalExpenditureByCollegeAndUniversity(loginUniversity, loginInstitute, financialResources));
+		listOfList
+				.add(capitalExpenditureAmountRepo.getCapitalExpenditureByCollegeAndUniversity(comparingUniversity, comparingInstitute,financialResources));
+
+		return listOfList;
+	}
+
+	@Override
+	public List<Object> getOperationExpenditureByCollegeAndUniversity(String loginUniversity, String loginInstitute,
+			String comparingUniversity, String comparingInstitute, String financialResources) {
+	
+		List<Object> listOfList = new ArrayList<>();
+
+		listOfList
+				.add(operationExpenditureAmountRepo.getOperationExpenditureByCollegeAndUniversity(loginUniversity, loginInstitute, financialResources));
+		listOfList
+				.add(operationExpenditureAmountRepo.getOperationExpenditureByCollegeAndUniversity(comparingUniversity, comparingInstitute,financialResources));
+
+		return listOfList;
+	}
+
+	
 
 }

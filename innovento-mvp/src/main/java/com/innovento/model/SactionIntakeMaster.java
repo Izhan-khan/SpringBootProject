@@ -3,15 +3,12 @@
 package com.innovento.model;
 
 import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Version;
 
 @Entity(name="saction_approved_intake_master")
 public class SactionIntakeMaster implements Serializable {

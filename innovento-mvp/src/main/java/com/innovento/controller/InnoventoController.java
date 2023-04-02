@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.innovento.model.AcademicYear;
 import com.innovento.model.CapitalExpenditureAmount;
+import com.innovento.model.CapitalExpenditureResources;
+import com.innovento.model.CollegeMaster;
 import com.innovento.model.ConsultingProjectDetails;
 import com.innovento.model.OperationExpenditureAmount;
+import com.innovento.model.OperationExpenditureResources;
 import com.innovento.model.PG_2year;
 import com.innovento.model.Phd_graduated_student;
 import com.innovento.model.Phd_persuingTill2021;
@@ -45,9 +48,9 @@ public class InnoventoController {
 		return innoventoMVPService.getProgramList();
 	}
 
-	@GetMapping("/sactionApprovedIntake/getList")
-	public List<SactionIntakeMaster> getsactionApprovedList() {
-		return innoventoMVPService.getsactionApprovedList();
+	@GetMapping("/sactionApprovedIntake/getList/{collegeId}")
+	public List<SactionIntakeMaster> getsactionApprovedList(@PathVariable("collegeId") String collegeId) {
+		return innoventoMVPService.getsactionApprovedList(collegeId);
 	}
 
 	@PostMapping("/sactionApprovedIntake/addList")
@@ -55,9 +58,9 @@ public class InnoventoController {
 		innoventoMVPService.addSactionApprovedList(intakeMastersList);
 	}
 
-	@GetMapping("/totalStudentStrength/getList")
-	public List<TotalStudentStrength> getTotalStudentList() {
-		return innoventoMVPService.getTotalStudentList();
+	@GetMapping("/totalStudentStrength/getList/{collegeId}")
+	public List<TotalStudentStrength> getTotalStudentList(@PathVariable("collegeId") String collegeId) {
+		return innoventoMVPService.getTotalStudentList(collegeId);
 	}
 
 	@PostMapping("/totalStudentStrength/addList")
@@ -71,9 +74,9 @@ public class InnoventoController {
 		return innoventoMVPService.getProgramTimeById(id);
 	}
 	
-	@GetMapping("/phdPersuing/getList")
-	public List<Phd_persuingTill2021> getPhd_persuingStudentList(){
-		return innoventoMVPService.getPhdPersuingStudentsList();
+	@GetMapping("/phdPersuing/getList/{collegeId}")
+	public List<Phd_persuingTill2021> getPhd_persuingStudentList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getPhdPersuingStudentsList(collegeId);
 	}
 	
 	@PostMapping("/phdPersuing/addList")
@@ -81,9 +84,9 @@ public class InnoventoController {
 		innoventoMVPService.addPhdPersuingStudentsList(Phd_persuingStudentList);
 	}
 	
-	@GetMapping("/phdGraduated/getList")
-	public List<Phd_graduated_student> getPhdGraduated_studentsList(){
-		return innoventoMVPService.getPhdGraduatedStudentsList();
+	@GetMapping("/phdGraduated/getList/{collegeId}")
+	public List<Phd_graduated_student> getPhdGraduated_studentsList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getPhdGraduatedStudentsList(collegeId);
 	}
 	
 	@PostMapping("/phdGraduated/addList")
@@ -96,9 +99,9 @@ public class InnoventoController {
 		return innoventoMVPService.getResearchDetailsById(id);
 	}
 	
-	@GetMapping("/sponsoredResearchDetails/getList")
-	public List<SponsoredResearchDetails> getSponsoredResearchDetailsList(){
-		return innoventoMVPService.getSponsoredResearchDetailsList();
+	@GetMapping("/sponsoredResearchDetails/getList/{collegeId}")
+	public List<SponsoredResearchDetails> getSponsoredResearchDetailsList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getSponsoredResearchDetailsList(collegeId);
 	}
 	
 	@PostMapping("/sponsoredResearchDetails/addList")
@@ -106,9 +109,9 @@ public class InnoventoController {
 		innoventoMVPService.addSponsoredResearchDetailsList(sponsoredResearchDetailsList);
 	}
 	
-	@GetMapping("/consultingProjectDetails/getList")
-	public List<ConsultingProjectDetails> getConsultingProjectDetailsList(){
-		return innoventoMVPService.getConsultingProjectDetailsList();
+	@GetMapping("/consultingProjectDetails/getList/{collegeId}")
+	public List<ConsultingProjectDetails> getConsultingProjectDetailsList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getConsultingProjectDetailsList(collegeId);
 	}
 	
 	@PostMapping("/consultingProjectDetails/addList")
@@ -116,9 +119,20 @@ public class InnoventoController {
 		innoventoMVPService.addConsultingProjectDetailsList(consultingProjectDetailsList);
 	}
 	
-	@GetMapping("/capitalExpenditureAmount/getList")
-	public List<CapitalExpenditureAmount> getCapitalExpenditureAmountList(){
-		return innoventoMVPService.getCapitalExpenditureAmountList();
+	
+	@GetMapping("/capitalExpenditureRescources/{id}")
+	public CapitalExpenditureResources getCapitalExpenditureRescources(@PathVariable("id") long id) {
+		return innoventoMVPService.getCapitalExpenditureResourcesById(id);
+	}
+	
+	@GetMapping("/operationExpenditureRescources/{id}")
+	public OperationExpenditureResources getOperationExpenditureRescources(@PathVariable("id") long id) {
+		return innoventoMVPService.getOperationExpenditureResourcesById(id);
+	}
+	
+	@GetMapping("/capitalExpenditureAmount/getList/{collegeId}")
+	public List<CapitalExpenditureAmount> getCapitalExpenditureAmountList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getCapitalExpenditureAmountList(collegeId);
 	}
 	
 	@PostMapping("/capitalExpenditureAmount/addList")
@@ -126,9 +140,9 @@ public class InnoventoController {
 		innoventoMVPService.addCapitalExpenditureAmountList(capitalExpenditureAmountsList);
 	}
 	
-	@GetMapping("/operationExpenditureAmount/getList")
-	public List<OperationExpenditureAmount> getOperationExpenditureAmountList(){
-		return innoventoMVPService.getOperationExpenditureAmountList();
+	@GetMapping("/operationExpenditureAmount/getList/{collegeId}")
+	public List<OperationExpenditureAmount> getOperationExpenditureAmountList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getOperationExpenditureAmountList(collegeId);
 	}
 	
 	@PostMapping("/operationExpenditureAmount/addList")
@@ -146,9 +160,9 @@ public class InnoventoController {
 	}
 
 	
-	@GetMapping("/ug_4year/getList")
-	public List<UG_4year> getUG_4yearList(){
-		return innoventoMVPService.getUG_4yearList();
+	@GetMapping("/ug_4year/getList/{collegeId}")
+	public List<UG_4year> getUG_4yearList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getUG_4yearList(collegeId);
 	}
 	
 	@PostMapping("/ug_4year/addList")
@@ -156,9 +170,9 @@ public class InnoventoController {
 		innoventoMVPService.addUG_4yearList(uG_4yearList);
 	}
 	
-	@GetMapping("/pg_2year/getList")
-	public List<PG_2year> getPG_2yearList(){
-		return innoventoMVPService.getPG_2yearList();
+	@GetMapping("/pg_2year/getList/{collegeId}")
+	public List<PG_2year> getPG_2yearList(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getPG_2yearList(collegeId);
 	}
 	
 	@PostMapping("/pg_2year/addList")
@@ -166,15 +180,26 @@ public class InnoventoController {
 		innoventoMVPService.addPG_2yearList(pg_2yearList);
 	}
 	
+//	Change this we want to get university details by universityId not by pk uid
 	@GetMapping("/university/getUniversityById/{id}")
 	public UniversityMaster getUniversityMaster(@PathVariable("id") long id){
 		return innoventoMVPService.getUniversityMasterById(id);
 	}
 	
+	@GetMapping("/getCollegeByCollegeId/{collegeId}")
+	public CollegeMaster getCollegeMaster(@PathVariable("collegeId") String collegeId){
+		return innoventoMVPService.getCollegeMasterByCollegeId(collegeId);
+	}
+	
 	@GetMapping("/university/college/getList/{university_id}")
 	public List<Object> getCollegeListWithName(@PathVariable("university_id") String university_id) {
 		System.out.println(university_id.trim());
-		return innoventoMVPService.getCollegeName(university_id.trim());		
+		return innoventoMVPService.getCollegeNamesList(university_id.trim());		
+	}
+	
+	@GetMapping("/university/getList/{collegeId}")
+	public List<Object> getUniversityNamesList(@PathVariable("collegeId") String collegeId) {
+		return innoventoMVPService.getUniversityNamesList(collegeId.trim());		
 	}
 	
 	@PostMapping("/university/compareColleges/intake")
@@ -185,12 +210,6 @@ public class InnoventoController {
 			@RequestParam(name = "comparingInstitute") String comparingInstitute,
 			@RequestParam(name = "programId") String programId
 			){
-			
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(programId);
 		
 		return innoventoMVPService.getIntakeByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programId.trim());
 	
@@ -204,13 +223,7 @@ public class InnoventoController {
 			@RequestParam(name = "comparingInstitute") String comparingInstitute,
 			@RequestParam(name = "programId") String programId
 			){
-			
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(programId);
-		
+					
 		return innoventoMVPService.getTotalStudentsByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programId.trim());
 	
 	}
@@ -223,13 +236,7 @@ public class InnoventoController {
 			@RequestParam(name = "comparingInstitute") String comparingInstitute,
 			@RequestParam(name = "programTimeId") String programTimeId
 			){
-			
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(programTimeId);
-		
+					
 		return innoventoMVPService.getPhdPersuingByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programTimeId.trim());
 	
 	}
@@ -243,13 +250,7 @@ public class InnoventoController {
 			@RequestParam(name = "comparingInstitute") String comparingInstitute,
 			@RequestParam(name = "programTimeId") String programTimeId
 			){
-		
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(programTimeId);
-		
+				
 		return innoventoMVPService.getPhdGraduatedByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),programTimeId.trim());
 	
 	}
@@ -264,12 +265,6 @@ public class InnoventoController {
 			@RequestParam(name = "researchDetailsId") String researchDetailsId
 			){
 			
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(researchDetailsId);
-		
 		return innoventoMVPService.getSponsoredResearchByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),researchDetailsId.trim());
 	
 	}
@@ -284,12 +279,6 @@ public class InnoventoController {
 			@RequestParam(name = "researchDetailsId") String researchDetailsId
 			){
 		
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(researchDetailsId);
-		
 		return innoventoMVPService.getConsultingProjectResearchByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),researchDetailsId.trim());
 	
 	}
@@ -303,12 +292,6 @@ public class InnoventoController {
 			@RequestParam(name = "academicYearId") String academicYearId
 			){
 			
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(academicYearId);
-		
 		return innoventoMVPService.getUG_4_YearByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),academicYearId.trim());
 	
 	}
@@ -323,15 +306,38 @@ public class InnoventoController {
 			@RequestParam(name = "academicYearId") String academicYearId
 			){
 		
-		System.out.println(loginUniversity);
-		System.out.println(loginInstitute);
-		System.out.println(comparingUniversity);
-		System.out.println(comparingInstitute);
-		System.out.println(academicYearId);
-		
 		return innoventoMVPService.getPG_2_YearByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),academicYearId.trim());
 	
 	}
+	
+	
+	@PostMapping("/university/finance/capitalExpenditure")
+	public List<Object> getFinanceCapitalExpenditureByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "capitalExpenditureResourceId") String capitalExpenditureFinanceResources
+			){
+		
+		return innoventoMVPService.getCapitalExpenditureByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),capitalExpenditureFinanceResources.trim());
+	
+	}
+
+	@PostMapping("/university/finance/operationExpenditure")
+	public List<Object> getFinanceOprationExpenditureByCollegeAndUniversity(
+			@RequestParam(name = "loginUniversity") String loginUniversity,
+			@RequestParam(name = "loginInstitute") String loginInstitute,
+			@RequestParam(name = "comparingUniversity") String comparingUniversity,
+			@RequestParam(name = "comparingInstitute") String comparingInstitute,
+			@RequestParam(name = "operationExpenditureResourceId") String operationExpenditureFinanceResources
+			){
+		
+		return innoventoMVPService.getOperationExpenditureByCollegeAndUniversity(loginUniversity.trim(),loginInstitute.trim(),comparingUniversity.trim(),comparingInstitute.trim(),operationExpenditureFinanceResources.trim());
+	
+	}
+	
+
 	
 	
 }

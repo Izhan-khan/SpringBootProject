@@ -12,6 +12,10 @@ import com.innovento.model.Phd_persuingTill2021;
 @Repository
 public interface PhdPersuingRepo extends JpaRepository<Phd_persuingTill2021, Long>{
 
+	
+	public List<Phd_persuingTill2021> findAllByCollegeId(String collegeId);
+
+	
 	@Query(value = "SELECT p.program_time,sp.total_students_count,c.college_name ,u.university_name "
 			+ "FROM student_persuing_phd_till_2020_21 sp , program_time p, university_master u ,college_master c "
 			+ "where  sp.college_id=c.college_id AND sp.university_id= TRIM(LEADING ' ' FROM u.university_id ) "
