@@ -10,6 +10,7 @@ import com.innovento.model.ConsultingProjectDetails;
 import com.innovento.model.OperationExpenditureAmount;
 import com.innovento.model.OperationExpenditureResources;
 import com.innovento.model.PG_2year;
+import com.innovento.model.Personal_Info;
 import com.innovento.model.Phd_graduated_student;
 import com.innovento.model.Phd_persuingTill2021;
 import com.innovento.model.ProgramMaster;
@@ -92,6 +93,8 @@ public interface InnoventoMVPService {
 	public List<Object> getCollegeNamesList(String university_id);
 
 	public List<Object> getUniversityNamesList(String collegeId);
+	
+	public void addPersonal_Info(Personal_Info personal_Info);
 
 	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity, String loginInstitute,
 			String comparingUniversity, String comparingInstitute,String programId);

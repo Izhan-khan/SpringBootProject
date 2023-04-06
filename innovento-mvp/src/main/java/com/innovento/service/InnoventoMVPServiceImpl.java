@@ -20,6 +20,7 @@ import com.innovento.Repository.ConsultingProjectDetailsRepo;
 import com.innovento.Repository.OperationExpenditureAmountRepo;
 import com.innovento.Repository.OperationExpenditureResourcesRepo;
 import com.innovento.Repository.PG_2yearRepo;
+import com.innovento.Repository.Personal_InfoRepo;
 import com.innovento.Repository.PhdGraduatedRepo;
 import com.innovento.Repository.PhdPersuingRepo;
 import com.innovento.Repository.ProgramMasterRepo;
@@ -42,6 +43,7 @@ import com.innovento.model.JwtRequest;
 import com.innovento.model.OperationExpenditureAmount;
 import com.innovento.model.OperationExpenditureResources;
 import com.innovento.model.PG_2year;
+import com.innovento.model.Personal_Info;
 import com.innovento.model.Phd_graduated_student;
 import com.innovento.model.Phd_persuingTill2021;
 import com.innovento.model.ProgramMaster;
@@ -54,7 +56,7 @@ import com.innovento.model.UG_4year;
 import com.innovento.model.UniversityLogin;
 import com.innovento.model.UniversityMaster;
 
-@Service
+@Service 
 public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetailsService {
 
 	@Autowired
@@ -119,6 +121,9 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 	
 	@Autowired
 	private UniversityCollegeRelationRepo universityCollegeRelationRepo;
+	
+	@Autowired
+	private Personal_InfoRepo personal_InfoRepo;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -312,6 +317,11 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 		return universityCollegeRelationRepo.getUniversityNamesList(collegeId);
 	}
 
+	@Override
+	public void addPersonal_Info(Personal_Info personal_Info) {
+		personal_InfoRepo.save(personal_Info);
+	}
+	
 	
 	@Override
 	public List<Object> getIntakeByCollegeAndUniversity(String loginUniversity, String loginInstitute,
@@ -461,6 +471,8 @@ public class InnoventoMVPServiceImpl implements InnoventoMVPService, UserDetails
 
 		return listOfList;
 	}
+
+	
 
 	
 

@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ListWith"/>
+		<item key="selection" value="Capital"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="capital"/>
+			<item value="collegeN"/>
+			<item value="collgeNam"/>
+			<item value="getCapitalExpenditureAmountList"/>
+			<item value="getList"/>
+			<item value="universityId"/>
+			<item value="university"/>
+			<item value="univer"/>
+			<item value="getcol"/>
+			<item value="cer"/>
+			<item value="cea"/>
 			<item value="Listwith"/>
 			<item value="List"/>
 			<item value="@path"/>
-			<item value="university"/>
 			<item value="universityl"/>
-			<item value="universityna"/>
-			<item value="univers"/>
-			<item value="getuni"/>
-			<item value="universitna"/>
-			<item value="univer"/>
-			<item value="findBy"/>
-			<item value="authen"/>
-			<item value="saction"/>
-			<item value="sanc"/>
-			<item value="sac"/>
 		</list>
 		<list key="replacehistory">
+			<item value="oer"/>
+			<item value="oea"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
@@ -32,6 +34,6 @@
 		<item key="DIALOG_Y_ORIGIN" value="575"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
 	</section>
 </section>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.cors.reactive.CorsConfigurationSource"/>
-    <fullyQualifiedTypeName name="com.innovento.model.IntakeMaster"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.TotalStudentRepo"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.sanctionIntakeRepo"/>
@@ -26,30 +22,21 @@
     <fullyQualifiedTypeName name="com.innovento.Repository.PhdGraduatedRepo"/>
     <fullyQualifiedTypeName name="com.innovento.model.Phd_graduated_students"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="com.innovento.model.Phd_graduated_student"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="com.innovento.model.Phd_persuingTill2021"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.ProgramTimeRepo"/>
     <fullyQualifiedTypeName name="com.innovento.model.ProgramTime"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.ResearchDetailsRepo"/>
     <fullyQualifiedTypeName name="com.innovento.model.ResearchDetails"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.SponssoredResearchDetailsRepo"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.SponsoredResearchDetailsRepo"/>
-    <fullyQualifiedTypeName name="com.innovento.model.SponsoredResearchDetails"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.ConsultingProjectDetailsRepo"/>
-    <fullyQualifiedTypeName name="com.innovento.model.ConsultingProjectDetails"/>
-    <fullyQualifiedTypeName name="com.innovento.model.CapitalExpenditureAmount"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.CapitalExpenditureAmountRepo"/>
-    <fullyQualifiedTypeName name="com.innovento.model.OperationExpenditureAmount"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.OperationExpenditureAmountRepo"/>
-    <fullyQualifiedTypeName name="com.innovento.model.UG_4year"/>
     <fullyQualifiedTypeName name="com.innovento.model.AcademicYear"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.AcademicYearRepo"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.PG_2yearRepo"/>
-    <fullyQualifiedTypeName name="com.innovento.model.PG_2year"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.UniversityMasterRepo"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -60,4 +47,17 @@
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort.Direction"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.PhdPersuingRepo"/>
+    <fullyQualifiedTypeName name="com.innovento.model.UG_4year"/>
+    <fullyQualifiedTypeName name="com.innovento.model.PG_2year"/>
+    <fullyQualifiedTypeName name="com.innovento.model.Phd_persuingTill2021"/>
+    <fullyQualifiedTypeName name="com.innovento.model.Phd_graduated_student"/>
+    <fullyQualifiedTypeName name="com.innovento.model.ConsultingProjectDetails"/>
+    <fullyQualifiedTypeName name="com.innovento.model.SponsoredResearchDetails"/>
+    <fullyQualifiedTypeName name="com.innovento.Repository.CapitalExpenditureResourcesRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.innovento.model.CollegeMaster"/>
+    <fullyQualifiedTypeName name="com.innovento.model.CapitalExpenditureAmount"/>
+    <fullyQualifiedTypeName name="com.innovento.model.OperationExpenditureAmount"/>
+    <fullyQualifiedTypeName name="com.innovento.model.OperationExpenditureResources"/>
+    <fullyQualifiedTypeName name="com.innovento.model.CapitalExpenditureResources"/>
 </qualifiedTypeNameHistroy>

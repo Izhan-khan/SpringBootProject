@@ -19,6 +19,7 @@ import com.innovento.model.ConsultingProjectDetails;
 import com.innovento.model.OperationExpenditureAmount;
 import com.innovento.model.OperationExpenditureResources;
 import com.innovento.model.PG_2year;
+import com.innovento.model.Personal_Info;
 import com.innovento.model.Phd_graduated_student;
 import com.innovento.model.Phd_persuingTill2021;
 import com.innovento.model.ProgramMaster;
@@ -178,6 +179,11 @@ public class InnoventoController {
 	@PostMapping("/pg_2year/addList")
 	public void addPG_2yearList(@RequestBody List<PG_2year> pg_2yearList ) {
 		innoventoMVPService.addPG_2yearList(pg_2yearList);
+	}
+	
+	@GetMapping("/university/perception/add")
+	public void addPersonal_Info(@RequestBody Personal_Info personal_Info){
+		innoventoMVPService.addPersonal_Info(personal_Info);
 	}
 	
 //	Change this we want to get university details by universityId not by pk uid
