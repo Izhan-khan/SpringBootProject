@@ -181,7 +181,7 @@ public class InnoventoController {
 		innoventoMVPService.addPG_2yearList(pg_2yearList);
 	}
 	
-	@GetMapping("/university/perception/add")
+	@PostMapping("/university/perception/add")
 	public void addPersonal_Info(@RequestBody Personal_Info personal_Info){
 		innoventoMVPService.addPersonal_Info(personal_Info);
 	}

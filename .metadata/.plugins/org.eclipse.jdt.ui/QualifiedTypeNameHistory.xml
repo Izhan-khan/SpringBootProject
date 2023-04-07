@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource"/>
-    <fullyQualifiedTypeName name="com.innovento.Repository.TotalStudentRepo"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.sanctionIntakeRepo"/>
     <fullyQualifiedTypeName name="com.innovento.model.sactionIntakeMaster"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.sactionIntakeRepo"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.SactionIntakeRepo"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.innovento.model.SactionIntakeMaster"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="com.innovento.model.TotalStudentStrength"/>
@@ -37,7 +34,6 @@
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.PG_2yearRepo"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.innovento.Repository.UniversityMasterRepo"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="com.innovento.model.OperationExpenditureAmount"/>
     <fullyQualifiedTypeName name="com.innovento.model.OperationExpenditureResources"/>
     <fullyQualifiedTypeName name="com.innovento.model.CapitalExpenditureResources"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.innovento.Repository.Personal_InfoRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.innovento.model.Personal_Info"/>
 </qualifiedTypeNameHistroy>
